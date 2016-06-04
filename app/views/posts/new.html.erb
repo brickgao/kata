@@ -1,20 +1,22 @@
-<%= form_for :article do |f| %>
-  <p>
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </p>
+<%= form_for :post, html: {class: ['pure-form', 'pure-form-aligned']} do |f| %>
+<fieldset>
+  <div class="pure-control-group">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: 'pure-input-2-3' %>
+  </div>
 
-  <p>
-    <%= f.label :text %><br>
-    <%= f.text_field :text %>
-  </p>
+  <div class="pure-control-group">
+    <%= f.label :text %>
+    <%= f.text_area :text, class: ['pure-input-2-3', 'post-text'] %>
+  </div>
 
-  <p>
-    <%= f.label :node %><br>
+  <div class="pure-control-group">
+    <%= f.label :node %>
     <%= f.select :node, ['Test node 1', 'Test node 2'] %>
-  </p>
+  </div>
 
-  <p>
-    <%= f.submit %>
-  </p>
+  <div class="pure-controls">
+    <%= f.submit class: ['pure-button', 'pure-button-primary'] %>
+  </div>
+</fieldset>
 <% end %>

@@ -10,18 +10,23 @@
 <body>
 
 <div class="header">
-    <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-        <a class="pure-menu-heading" href="">Kata</a>
-        <ul class="pure-menu-list">
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Home</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Setting</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">Sign Up</a></li>
-        </ul>
-    </div>
+  <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+      <a class="pure-menu-heading" href="">Kata</a>
+      <ul class="pure-menu-list">
+          <li class="pure-menu-item"><a href="#" class="pure-menu-link">Home</a></li>
+          <li class="pure-menu-item"><a href="#" class="pure-menu-link">Setting</a></li>
+          <li class="pure-menu-item"><a href="#" class="pure-menu-link">Sign Up</a></li>
+      </ul>
+  </div>
 </div>
 
-<div class="content">
+<div class="pure-g content">
+  <div class="pure-u-17-24 page">
     <%= yield %>
+  </div>
+  <div class="pure-u-1-24"></div>
+  <div class="pure-u-1-4 page">
+  </div>
 </div>
 
 </body>
