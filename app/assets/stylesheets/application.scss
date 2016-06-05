@@ -51,7 +51,10 @@
 .page {
     border-radius: 10px;
     background: rgb(252, 252, 252);
-    padding-top: 10px;
+}
+
+.page-content {
+    padding: 10px;
 }
 
 @media (min-width: 48em) {

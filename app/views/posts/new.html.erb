@@ -1,5 +1,7 @@
 <%= form_for :post, html: {class: ['pure-form', 'pure-form-aligned']} do |f| %>
 <fieldset>
+  <legend>Create Post</legend>
+
   <div class="pure-control-group">
     <%= f.label :title %>
     <%= f.text_field :title, class: 'pure-input-2-3' %>
@@ -16,7 +18,7 @@
   </div>
 
   <div class="pure-controls">
-    <%= f.submit class: ['pure-button', 'pure-button-primary'] %>
+    <%= f.submit "Create Post", class: ['pure-button', 'pure-button-primary'] %>
   </div>
 </fieldset>
 <% end %>
