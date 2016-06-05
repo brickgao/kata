@@ -3,6 +3,8 @@ rvm:
   - 2.2
 install:
   - RAILS_ENV=test bundle install --jobs=3 --retry=3
+before_script:
   - RAILS_ENV=test bundle exec rake db:migrate
+  - cp config/secrets.yml.default config/secrets.yml
 script:
   - RAILS_ENV=test bundle exec rake
