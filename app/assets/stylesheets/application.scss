@@ -21,32 +21,22 @@ body {
 }
 
 .header {
+  $header-min-width: 1000px;
   background-color: #353846;
   padding: 0 20px 0 20px;
   height: 44px;
+  min-width: $header-min-width;
   .header-content {
     margin: 0 auto;
-    width: 1000px;
+    width: $header-min-width;
+    display: flex;
+    justify-content: space-between;
     a.menu-link {
       $active-and-visited-color: #B9BABD;
       @mixin defaultA($font-color: #D6D6D6) {
         color: $font-color;
         text-decoration: none;
       }
-/*
-      &:link {
-        @include defaultA;
-      }
-      &:hover {
-        @include defaultA($active-and-visited-color);
-      }
-      &:active {
-        @include defaultA($active-and-visited-color);
-      }
-      &:visited {
-        @include defaultA;
-      }
-*/
       &:link, &:visited {
         @include defaultA;
       }
@@ -55,16 +45,35 @@ body {
       }
     }
     .logo {
-      text-align: left;
-      font-size: 120%;
-      font-weight: 120%;
+      margin: 9px 0 0 0;
+      color: #F8F8F8;
+      text-decoration: none;
+      font-size: 150%;
+      font-weight: normal;
     }
     ul.menu-list {
-      list-style-type: none;
       text-align: right;
+      margin: 14px 0 0 0;
+      list-style-type: none;
     }
     li.menu-item {
+      padding: 0 3px 0 3px;
       display: inline;
+    }
+    input[type=text].search {
+      height: 18px;
+      border: 0;
+      width: 300px;
+      box-shadow: -7px 9px 0px -7px #EBEBEB;
+      transition: box-shadow 0.3s;
+      background: transparent;
+      margin: 10px 0 0 -350px;
+      font-size: 85%;
+    }
+    input[type=text].search:focus {
+      outline: none;
+      box-shadow: -7px 9px 0px -7px #A2BCB8;
+      color: #F8F8F8;
     }
   }
 }
