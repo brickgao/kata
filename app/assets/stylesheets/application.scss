@@ -14,65 +14,57 @@
  *= require_self
  */
 
-
-.home-menu {
-    padding: 0.5em;
-    text-align: center;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10);
-    background: #2d3e50;
-    a {
-        color: #6FBEF3;
-    }
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Helvetica", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
 }
 
-.pure-menu.pure-menu-fixed {
-    border-bottom: none;
-    z-index: 4;
-}
-
-.home-menu {
-    .pure-menu-heading {
-        color: white;
-        font-weight: 400;
-        font-size: 120%;
+.header {
+  background-color: #353846;
+  padding: 0 20px 0 20px;
+  height: 44px;
+  .header-content {
+    margin: 0 auto;
+    width: 1000px;
+    a.menu-link {
+      $active-and-visited-color: #B9BABD;
+      @mixin defaultA($font-color: #D6D6D6) {
+        color: $font-color;
+        text-decoration: none;
+      }
+/*
+      &:link {
+        @include defaultA;
+      }
+      &:hover {
+        @include defaultA($active-and-visited-color);
+      }
+      &:active {
+        @include defaultA($active-and-visited-color);
+      }
+      &:visited {
+        @include defaultA;
+      }
+*/
+      &:link, &:visited {
+        @include defaultA;
+      }
+      &:hover, &:active {
+        @include defaultA($active-and-visited-color);
+      }
     }
-    .pure-menu-selected a {
-        color: white;
+    .logo {
+      text-align: left;
+      font-size: 120%;
+      font-weight: 120%;
     }
-    li a {
-        &:hover, &:focus {
-            background: none;
-            border: none;
-            color: #AECFE5;
-        }
+    ul.menu-list {
+      list-style-type: none;
+      text-align: right;
     }
-}
-
-.page {
-    border-radius: 10px;
-    background: rgb(252, 252, 252);
-}
-
-.page-content {
-    padding: 10px;
-}
-
-@media (min-width: 48em) {
-    body {
-        font-size: 16px;
-        background: rgb(240, 240, 240);
+    li.menu-item {
+      display: inline;
     }
-    .home-menu {
-        text-align: left;
-        ul {
-            float: right;
-        }
-    }
-    .content {
-        position: absolute;
-        top: 72px;
-        left: 0;
-        right: 0;
-        margin: 0 20px 0 20px;
-    }
+  }
 }

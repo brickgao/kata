@@ -2,7 +2,6 @@
 <html>
 <head>
   <title>Kata</title>
-  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -10,28 +9,17 @@
 <body>
 
 <div class="header">
-  <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-      <a class="pure-menu-heading" href="">Kata</a>
-      <ul class="pure-menu-list">
-          <li class="pure-menu-item"><a href="#" class="pure-menu-link">Home</a></li>
-          <li class="pure-menu-item"><a href="#" class="pure-menu-link">Setting</a></li>
-          <li class="pure-menu-item"><a href="#" class="pure-menu-link">Logout</a></li>
-      </ul>
+  <div class="header-content">
+    <a class="logo" href="#">Kata</a>
+    <ul class="menu-list">
+      <li class="menu-item"><a class="menu-link" href="#">Home</a></li>
+      <li class="menu-item"><a class="menu-link" href="#">Setting</a></li>
+      <li class="menu-item"><a class="menu-link" href="#">Logout</a></li>
+    </ul>
   </div>
 </div>
 
-<div class="pure-g content">
-  <div class="pure-u-17-24 page">
-    <div class="page-content">
-     <%= yield %>
-    </div>
-  </div>
-  <div class="pure-u-1-24"></div>
-  <div class="pure-u-1-4 page">
-    <div class="page-content">
-    </div>
-  </div>
-</div>
+<%= yield %>
 
 </body>
 </html>
