@@ -17,11 +17,12 @@
 body {
   padding: 0px;
   margin: 0px;
+  background-color: #eee;
   font-family: "Helvetica", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
 }
 
 .header {
-  $header-min-width: 1000px;
+  $header-min-width: 1100px;
   background-color: #353846;
   padding: 0 20px 0 20px;
   height: 44px;
@@ -67,13 +68,43 @@ body {
       box-shadow: -7px 9px 0px -7px #EBEBEB;
       transition: box-shadow 0.3s;
       background: transparent;
-      margin: 10px 0 0 -350px;
+      margin: 10px 0 0 -430px;
       font-size: 85%;
     }
     input[type=text].search:focus {
       outline: none;
-      box-shadow: -7px 9px 0px -7px #A2BCB8;
+      box-shadow: -7px 9px 0px -7px #D6D6D6;
       color: #F8F8F8;
+    }
+  }
+}
+
+.content {
+  $content-min-length: 1090px;
+  margin-top: 15px;
+  min-width: $content-min-length;
+  .left-and-right {
+    display: flex;
+    margin: 0 auto;
+    justify-content: space-between;
+    width: $content-min-length;
+    .left {
+        margin: 0 0 0 5px;
+        .block {
+          background-color: #FFF;
+          padding: 10px;
+          width: 750px;
+          border-radius: 10px;
+        }
+    }
+    .right {
+        margin: 0 5px 0 0;
+        .block {
+          background-color: #FFF;
+          padding: 10px;
+          width: 220px;
+          border-radius: 10px;
+        }
     }
   }
 }
