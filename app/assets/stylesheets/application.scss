@@ -88,22 +88,23 @@ body {
     margin: 0 auto;
     justify-content: space-between;
     width: $content-min-length;
+    @mixin blockMixin($block-width) {
+      margin: 0 auto;
+      background-color: #FFF;
+      padding: 10px;
+      width: $block-width;
+      border-radius: 10px;
+    }
     .left {
         margin: 0 0 0 5px;
         .block {
-          background-color: #FFF;
-          padding: 10px;
-          width: 750px;
-          border-radius: 10px;
+          @include blockMixin(760px);
         }
     }
     .right {
         margin: 0 5px 0 0;
         .block {
-          background-color: #FFF;
-          padding: 10px;
-          width: 220px;
-          border-radius: 10px;
+          @include blockMixin(250px);
         }
     }
   }
