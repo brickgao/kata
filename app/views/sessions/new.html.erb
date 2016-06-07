@@ -1,19 +1,13 @@
-<%= form_for :session, html: {class: ['pure-form', 'pure-form-aligned']} do |f| %>
+<%= form_for :session, html: {class: ['kata-form']} do |f| %>
 <fieldset>
   <legend>Login</legend>
 
-  <div class="pure-control-group">
-    <%= f.label :email %>
-    <%= f.text_field :email, class: 'pure-input-1-2' %>
-  </div>
+  <%= f.label :email %>
+  <%= f.text_field :email, class: 'pure-input-1-2' %>
 
-  <div class="pure-control-group">
-    <%= f.label :password %>
-    <%= f.password_field :password, class: 'pure-input-1-2' %>
-  </div>
+  <%= f.label :password %>
+  <%= f.password_field :password, class: 'pure-input-1-2' %>
 
-  <div class="pure-controls">
-    <%= f.submit "Login", class: ['pure-button', 'pure-button-primary'] %>
-  </div>
+  <%= f.submit "Login", class: ['pure-button', 'pure-button-primary'] %>
 </fieldset>
 <% end %>

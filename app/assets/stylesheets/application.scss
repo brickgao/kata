@@ -17,7 +17,8 @@
 body {
   padding: 0px;
   margin: 0px;
-  background-color: #eee;
+  color: #777;
+  background-color: #EEE;
   font-family: "Helvetica", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
 }
 
@@ -107,5 +108,27 @@ body {
           @include blockMixin(250px);
         }
     }
+  }
+}
+
+.kata-form {
+  fieldset {
+    border: 0;
+  }
+  legend {
+    width: 100%;
+    color: black;
+    font-size: 150%;
+    border-bottom: 1px solid #E5E5E5;
+    padding: .2em 0;
+    display: block;
+  }
+  label {
+    display: block;
+    margin: .25em 0;
+    line-height: 1.6;
+  }
+  input[type=submit] {
+    display: block;
   }
 }
