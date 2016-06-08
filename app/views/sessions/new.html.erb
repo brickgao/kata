@@ -3,11 +3,12 @@
   <legend>Login</legend>
 
   <%= f.label :email %>
-  <%= f.text_field :email, class: 'pure-input-1-2' %>
+  <%= f.text_field :email %>
 
   <%= f.label :password %>
-  <%= f.password_field :password, class: 'pure-input-1-2' %>
+  <%= f.password_field :password %>
 
-  <%= f.submit "Login", class: ['pure-button', 'pure-button-primary'] %>
+  <%= f.submit "Login", class: ['kata-button', 'primary-button'] %>
+
 </fieldset>
 <% end %>
