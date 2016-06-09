@@ -1,24 +1,16 @@
-<%= form_for :post, html: {class: ['pure-form', 'pure-form-aligned']} do |f| %>
+<%= form_for :post, html: {class: ['kata-form']} do |f| %>
 <fieldset>
   <legend>Create Post</legend>
 
-  <div class="pure-control-group">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: 'pure-input-2-3' %>
-  </div>
+  <%= f.label :title %>
+  <%= f.text_field :title, class: 'long-width' %>
 
-  <div class="pure-control-group">
-    <%= f.label :text %>
-    <%= f.text_area :text, class: ['pure-input-2-3', 'post-text'] %>
-  </div>
+  <%= f.label :text %>
+  <%= f.text_area :text, class: ['long-width', 'post-text'] %>
 
-  <div class="pure-control-group">
-    <%= f.label :node %>
-    <%= f.select :node, ['Test node 1', 'Test node 2'] %>
-  </div>
+  <%= f.label :node %>
+  <%= f.select :node, ['Test node 1', 'Test node 2'] %>
 
-  <div class="pure-controls">
-    <%= f.submit "Create Post", class: ['pure-button', 'pure-button-primary'] %>
-  </div>
+  <%= f.submit "Create Post", class: ['kata-button', 'primary-button'] %>
 </fieldset>
 <% end %>
