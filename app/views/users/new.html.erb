@@ -1,0 +1,22 @@
+<%= form_for :user, html: {class: ['kata-form']} do |f| %>
+<fieldset>
+  <legend>Sign Up</legend>
+
+  <%= render 'layouts/error_messages' %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'medium-width' %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email, class: 'medium-width' %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password, class: 'medium-width' %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation, class: 'medium-width' %>
+
+  <%= f.submit "Sign Up", class: ['kata-button', 'primary-button'] %>
+
+</fieldset>
+<% end %>

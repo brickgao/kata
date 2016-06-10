@@ -54,8 +54,11 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  get    'login' => 'sessions#new'
-  post   'login' => 'sessions#create'
+  get    'signup' => 'users#new'
+  post   'signup' => 'users#create'
+  get    'login'  => 'sessions#new'
+  post   'login'  => 'sessions#create'
   delete 'logout' => 'sessions#destory'
   resources :posts
+  resources :users
 end
