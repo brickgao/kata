@@ -35,6 +35,8 @@ gem 'bcrypt', '~> 3.1.7'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  # For mocking and stubbing
+  gem 'mocha'
 end
 
 group :development do
