@@ -1,4 +1,8 @@
-<% if @user.errors.any? %>
+<% if flash[:danger] %>
+<div class="message error-message">
+  <div><%= flash[:danger] %></div>
+</div>
+<% elsif @user && @user.errors.any? %>
 <div class="message error-message">
   <div>The form contains <%= pluralize(@user.errors.count, "error") %></div>
   <ul>
