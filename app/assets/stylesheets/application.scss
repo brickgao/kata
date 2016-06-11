@@ -190,3 +190,14 @@ input[type=submit] {
   width: 1070px;
   border-radius: 10px;
 }
+
+.message {
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 5px;
+  &.error-message {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+  }
+}
