@@ -7,6 +7,13 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should create successfully with valid params" do
+    post_params = {
+      :user => {
+        :name => 'testname', :email => 'testmail',
+        :password => 'badpassword',
+        :password_confirmation => 'badpassword'
+      }
+    }
     new_user = mock()
     new_user.stubs(:save).returns(true)
     User.stubs(:new).returns(new_user)
@@ -19,31 +26,16 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should create unsuccessfully with invalid params" do
-    new_user, errors = mock(), mock()
-    new_user.stubs(:save).returns(false)
-    new_user.stubs(:errors).returns(errors)
-    [:name, :email].each do |attr|
-      new_user.stubs(attr).returns('placeholder')
-    end
-    errors.stubs(:any?).returns(false)
-    User.stubs(:new).returns(new_user)
-
+    post_params = {
+      :user => {
+        :name => 'testname', :email => 'testmail',
+        :password => 'badpassword',
+        :password_confirmation => 'yetanotherbadpassword'
+      }
+    }
     post :create, post_params
     assert_response :success
-    assert_not_equal @response.body, 'success'
-
-    User.unstub(:new)
+    assert_template 'users/new'
+    assert_select 'div.error-message'
   end
-
-  private
-  
-    def post_params
-      {
-        user: {
-          name: 'testname', email: 'testmail',
-          password: 'badpasswd',
-          password_confirmation: 'badpasswd'
-        }
-      }
-    end
 end
