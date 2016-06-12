@@ -54,6 +54,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
+  root   'posts#index'
   get    'signup' => 'users#new'
   post   'signup' => 'users#create'
   get    'login'  => 'sessions#new'
