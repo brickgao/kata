@@ -163,6 +163,7 @@ body {
   select {
     background-color: #FFF;
     @include inputText;
+    @include widthLength;
   }
 }
 

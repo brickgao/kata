@@ -1,4 +1,4 @@
-<%= form_for :post, html: {class: ['kata-form']} do |f| %>
+<%= form_for @post, html: {class: ['kata-form']} do |f| %>
 <fieldset>
   <legend>Create Post</legend>
 
@@ -9,7 +9,7 @@
   <%= f.text_area :body, class: ['long-width', 'post-text'] %>
 
   <%= f.label :node %>
-  <%= f.select :node, ['Test node 1', 'Test node 2'] %>
+  <%= f.select :node, [], {}, class: 'short-width' %>
 
   <%= f.submit "Create Post", class: ['kata-button', 'primary-button'] %>
 </fieldset>

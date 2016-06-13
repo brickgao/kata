@@ -3,9 +3,10 @@ class PostsController < ApplicationController
   end
 
   def new
+    @post = Post.new
   end
 
   def create
-    render plain: prarms[:posts].inspect
+    render plain: params[:post].inspect
   end
 end
