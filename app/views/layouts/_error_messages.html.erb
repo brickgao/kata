@@ -8,12 +8,14 @@
   <% elsif @post && @post.errors.any? %>
     <% @local_model_var = @post %>
   <% end %>
-  <div class="message error-message">
-    <div>The form contains <%= pluralize(@local_model_var.errors.count, "error") %></div>
-    <ul>
-    <% @local_model_var.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
-  </div>
+  <% if @local_model_var %>
+    <div class="message error-message">
+      <div>The form contains <%= pluralize(@local_model_var.errors.count, "error") %></div>
+      <ul>
+      <% @local_model_var.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
 <% end %>
