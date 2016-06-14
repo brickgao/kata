@@ -7,6 +7,19 @@ class PostsController < ApplicationController
   end
 
   def create
-    render plain: params[:post].inspect
+    @post = Post.new post_params
+    if @post.save
+      render plain: 'success'
+    else
+      render 'new'
+    end
   end
+
+  private
+  
+    def post_params
+      _params = params.require(:post).permit(:title, :body, :node)
+      _params[:node] = Node.find(Integer(_params[:node]))
+      _params
+    end
 end

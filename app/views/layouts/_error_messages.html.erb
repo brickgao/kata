@@ -2,13 +2,18 @@
 <div class="message error-message">
   <div><%= flash[:danger] %></div>
 </div>
-<% elsif @user && @user.errors.any? %>
-<div class="message error-message">
-  <div>The form contains <%= pluralize(@user.errors.count, "error") %></div>
-  <ul>
-  <% @user.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
+<% else %>
+  <% if @user && @user.errors.any? %>
+    <% @local_model_var = @user %>
+  <% elsif @post && @post.errors.any? %>
+    <% @local_model_var = @post %>
   <% end %>
-  </ul>
-</div>
+  <div class="message error-message">
+    <div>The form contains <%= pluralize(@local_model_var.errors.count, "error") %></div>
+    <ul>
+    <% @local_model_var.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
 <% end %>
