@@ -4,6 +4,10 @@ class PostsControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end
+  def setup
+    session[:user_id] = users(:alice).id
+  end
+
   test "should get new" do
     get :new
     assert_response :success
