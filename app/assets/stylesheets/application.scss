@@ -196,9 +196,15 @@ input[type=submit] {
   margin: 10px auto;
   padding: 10px;
   border-radius: 5px;
+  border: 1px solid transparent;
   &.error-message {
-    color: #a94442;
-    background-color: #f2dede;
-    border-color: #ebccd1;
+    color: #A94442;
+    background-color: #F2DEDE;
+    border-color: #EBCCD1;
+  }
+  &.warning-message {
+    color: #8A6D3B;
+    background-color: #FCF8E3;
+    border-color: #FAEBCC;
   }
 }
