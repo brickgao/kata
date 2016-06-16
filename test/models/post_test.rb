@@ -5,8 +5,9 @@ class PostTest < ActiveSupport::TestCase
   #   assert true
   # end
   def setup
-    @node = nodes(:testnode)
-    @post = Post.new(title: "Wow, such a post", body: "much text", node: @node)
+    @node, @user = nodes(:testnode), users(:alice)
+    @post = Post.new(title: "Wow, such a post", body: "much text",
+                     node: @node, user: @user)
   end
 
   test "should be valid" do
