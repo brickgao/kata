@@ -23,6 +23,7 @@ class PostsController < ApplicationController
     def post_params
       _params = params.require(:post).permit(:title, :body, :node)
       _params[:node] = Node.find(Integer(_params[:node]))
+      _params[:user] = User.find(session[:user_id])
       _params
     end
 end
