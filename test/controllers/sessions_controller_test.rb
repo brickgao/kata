@@ -21,4 +21,12 @@ class SessionsControllerTest < ActionController::TestCase
     assert_template 'new'
     assert_select 'div.error-message'
   end
+
+  test "loout should be successful" do
+    session[:user_id] = @user.id
+    get :destory
+    
+    assert_nil session[:user_id]
+    assert_redirected_to '/login'
+  end
 end
