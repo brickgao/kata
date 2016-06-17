@@ -17,5 +17,7 @@ class SessionsController < ApplicationController
   end
 
   def destory
+    log_out
+    redirect_to '/login'
   end
 end

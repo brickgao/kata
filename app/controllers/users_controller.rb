@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
   def new
     redirect_to '/signup' if request.fullpath != '/signup'
     @user = User.new
