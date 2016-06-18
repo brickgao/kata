@@ -1,1 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+testpost:
+  title: testtitle
+  body: testbody
+  node: testnode
+  user: alice

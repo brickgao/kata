@@ -5,6 +5,8 @@ class PostsControllerTest < ActionController::TestCase
   #   assert true
   # end
   def setup
+    @post = posts(:testpost)
+    @node = nodes(:testnode)
     session[:user_id] = users(:alice).id
   end
 
@@ -21,15 +23,8 @@ class PostsControllerTest < ActionController::TestCase
         :node => nodes(:testnode)
       }
     }
-    new_post = mock()
-    new_post.stubs(:save).returns(true)
-    Post.stubs(:new).returns(new_post)
-
     post :create, post_params
-    assert_response :success
-    assert_equal @response.body, 'success'
-
-    Post.unstub(:new)
+    assert_response :redirect
   end
 
   test "should create unsuccessfully with invalid params" do
@@ -37,12 +32,19 @@ class PostsControllerTest < ActionController::TestCase
       :post => {
         :title => "Sample",
         :body => "Sample",
-        :node => nodes(:testnode)
+        :node => @node.id
       }
     }
     post :create, post_params
     assert_response :success
     assert_template 'posts/new'
     assert_select 'div.error-message'
+  end
+
+  test "shoud show single post" do
+    get :show, id: @post.id
+    assert_response :success
+    assert_template 'posts/show'
+    assert_select 'div.post'
   end
 end
