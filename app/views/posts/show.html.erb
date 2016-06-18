@@ -1,0 +1,13 @@
+<div class="post post-header">
+  <div class="post-title">
+    <%= @post.title %>
+  </div>
+  <div class="post-author">
+    <%= @post.user.name %> posted at <%= @post.created_at %>, on <%= @post.node.name %>
+  </div>
+</div>
+<div class="post post-body">
+  <% @post.body.split(/\r?\n/).each do |paragraph| %>
+    <%= paragraph %><br/>
+  <% end %>
+</div>
