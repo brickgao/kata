@@ -1,0 +1,12 @@
+<div class="posts">
+  <% @posts.each do |post| %>
+    <div class="post-summary">
+      <div class="post-summary-title">
+        <a href="/post/<%= post.id %>"><%= post.title %></a>
+      </div>
+      <div class="post-summary-author">
+        <%= post.user.name %> posted at <%= post.created_at %>, on <%= post.node.name %>
+      </div>
+    </div>
+  <% end %>
+</div>

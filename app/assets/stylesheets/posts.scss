@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 textarea {
     &.post-text {
         resize: none;
@@ -23,6 +24,35 @@ textarea {
     .post-author {
       margin: 10px 0;
       font-size: 80%;
+    }
+  }
+}
+
+.posts {
+  padding: 10px .2em;
+  .post-summary {
+    a {
+      $active-and-visited-color: #B9BABD;
+      @mixin defaultA($font-color: #777) {
+        color: $font-color;
+        text-decoration: none;
+      }
+      &:link, &:visited {
+        @include defaultA;
+      }
+      &:hover, &:active {
+        @include defaultA($active-and-visited-color);
+      }
+    }
+    border-bottom: 1px solid #E5E5E5;
+    padding: .2em 0;
+    display: block;
+    .post-summary-title {
+      margin: 5px 0;
+    }
+    .post-summary-author {
+      margin: 10px 0;
+      font-size: 70%;
     }
   }
 }
