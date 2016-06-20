@@ -41,10 +41,17 @@ class PostsControllerTest < ActionController::TestCase
     assert_select 'div.error-message'
   end
 
-  test "shoud show single post" do
+  test "should show single post" do
     get :show, id: @post.id
     assert_response :success
     assert_template 'posts/show'
     assert_select 'div.post'
+  end
+
+  test "should show posts" do
+    get :index
+    assert_response :success
+    assert_template 'posts/index'
+    assert_select 'div.posts'
   end
 end
