@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_filter :authenticate_user!, :only => :show
+
   def new
     redirect_to '/signup' if request.fullpath != '/signup'
     @user = User.new
@@ -12,6 +14,10 @@ class UsersController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def show
+    @user = User.find(params[:id])
   end
 
   private
