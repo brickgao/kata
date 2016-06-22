@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
+
+  def setup
+    @user = users(:alice)
+  end
+
   test "should get new" do
     get :new
     assert_response :success
@@ -37,5 +42,11 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
     assert_template 'users/new'
     assert_select 'div.error-message'
+  end
+
+  test "should get show" do
+    session[:user_id] = @user.id
+    get :show, :id => @user.id
+    assert_response :success
   end
 end
