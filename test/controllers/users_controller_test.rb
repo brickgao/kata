@@ -48,5 +48,6 @@ class UsersControllerTest < ActionController::TestCase
     session[:user_id] = @user.id
     get :show, :id => @user.id
     assert_response :success
+    assert_select 'div.profile'
   end
 end
