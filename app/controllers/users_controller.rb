@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+  add_template_helper UsersHelper
   before_filter :authenticate_user!, :only => :show
 
   def new
