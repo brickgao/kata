@@ -12,7 +12,7 @@
     <% @user.posts.each do |post| %>
       <div class="post-summary">
         <div class="post-summary-title">
-          <a href="/post/<%= post.id %>"><%= post.title %></a>
+          <a href="/posts/<%= post.id %>"><%= post.title %></a>
         </div>
         <div class="post-summary-author">
           posted at <%= post.created_at %>, on <%= post.node.name %>
