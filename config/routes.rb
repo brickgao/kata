@@ -63,4 +63,5 @@ Rails.application.routes.draw do
   get    'logout' => 'sessions#destory'
   resources :posts
   resources :users
+  resources :comments
 end
