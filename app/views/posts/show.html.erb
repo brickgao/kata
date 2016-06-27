@@ -1,4 +1,3 @@
-<%= render 'layouts/error_messages' %>
 <div class="post post-header">
   <div class="post-title">
     <%= @post.title %>
@@ -10,5 +9,24 @@
 <div class="post post-body">
   <% @post.body.split(/\r?\n/).each do |paragraph| %>
     <%= paragraph %><br/>
+  <% end %>
+</div>
+
+<div class="comment">
+
+  <hr />
+
+  <p>Comment placeholder</p>
+
+  <hr />
+
+  <%= render 'layouts/error_messages' %>
+
+  <%= form_for @comment, html: {class: ['kata-form']} do |f| %>
+    <%= f.text_area :body, class: ['full-width', 'comment-text'] %>
+    
+    <%= f.hidden_field :post, :value => @post.id %>
+
+    <%= f.submit "Create Comment", class: ['kata-button', 'primary-button'] %>
   <% end %>
 </div>

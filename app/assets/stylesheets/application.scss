@@ -149,6 +149,9 @@ body {
     &.long-width {
       width: 600px;
     }
+    &.full-width {
+      width: 100%;
+    }
   }
   input {
     &[type=text], &[type=password] {
