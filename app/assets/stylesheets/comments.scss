@@ -17,4 +17,16 @@ textarea {
     border-width: 0;
     background-color: #EBEBEB;
   }
+  .single-comment {
+    border-bottom: 1px solid #E5E5E5;
+    margin: .3em 0;
+    padding: .2em 0;
+    display: block;
+    .comment-body {
+    }
+    .comment-detail {
+      margin: 10px 0;
+      font-size: 70%;
+    }
+  }
 }
