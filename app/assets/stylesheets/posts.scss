@@ -31,19 +31,6 @@ textarea {
 .posts {
   padding: 10px .2em;
   .post-summary {
-    a {
-      $active-and-visited-color: #B9BABD;
-      @mixin defaultA($font-color: #777) {
-        color: $font-color;
-        text-decoration: none;
-      }
-      &:link, &:visited {
-        @include defaultA;
-      }
-      &:hover, &:active {
-        @include defaultA($active-and-visited-color);
-      }
-    }
     border-bottom: 1px solid #E5E5E5;
     padding: .2em 0;
     display: block;

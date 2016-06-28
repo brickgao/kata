@@ -22,6 +22,20 @@ body {
   font-family: "Helvetica", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
 }
 
+@mixin defaultA($font-color: #777) {
+  color: $font-color;
+  text-decoration: none;
+}
+
+@mixin templateA($active-and-visited-color: #B9BABD, $font-color: #777) {
+  &:link, &:visited {
+    @include defaultA($font-color);
+  }
+  &:hover, &:active {
+    @include defaultA($active-and-visited-color);
+  }
+}
+
 .header {
   $header-min-width: 1100px;
   background-color: #353846;
@@ -34,17 +48,7 @@ body {
     display: flex;
     justify-content: space-between;
     a.menu-link {
-      $active-and-visited-color: #B9BABD;
-      @mixin defaultA($font-color: #D6D6D6) {
-        color: $font-color;
-        text-decoration: none;
-      }
-      &:link, &:visited {
-        @include defaultA;
-      }
-      &:hover, &:active {
-        @include defaultA($active-and-visited-color);
-      }
+      @include templateA(#B9BABD, #D6D6D6);
     }
     .logo {
       margin: 9px 0 0 0;
@@ -110,6 +114,10 @@ body {
         }
     }
   }
+}
+
+a {
+  @include templateA;
 }
 
 .kata-form {
