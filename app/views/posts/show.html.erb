@@ -27,7 +27,9 @@
     </div>
   <% end %>
 
-  <hr>
+  <% if @post.comments.length > 0 %>
+    <hr>
+  <% end %>
 
   <%= render 'layouts/error_messages' %>
 
