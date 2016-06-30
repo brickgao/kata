@@ -20,4 +20,17 @@
       </div>
     <% end %>
   </div>
+  <div class="comment">
+    <h3><strong>comments</strong></h3>
+    <% @user.comments.each do |comment| %>
+      <div>
+        <div>
+          <%= comment.body %>
+        </div>
+        <div>
+          posted at <%= comment.created_at %>, on <a href="/posts/<%= comment.post.id %>"><%= comment.post.title %></a>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
