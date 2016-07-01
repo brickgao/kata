@@ -19,7 +19,9 @@
   <% @post.comments.each do |comment| %>
     <div class="single-comment">
       <div class="comment-body">
-        <%= comment.body %>
+        <% comment.body.split(/\r?\n/).each do |paragraph| %>
+          <%= paragraph %><br/>
+        <% end %>
       </div>
       <div class="comment-detail">
         <a href="/users/<%=comment.user.id %>"><%= comment.user.name %></a> posted at <%= comment.created_at %>

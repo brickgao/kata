@@ -23,11 +23,11 @@
   <div class="comment">
     <h3><strong>comments</strong></h3>
     <% @user.comments.each do |comment| %>
-      <div>
-        <div>
+      <div class="single-comment">
+        <div class="comment-body">
           <%= comment.body %>
         </div>
-        <div>
+        <div class="comment-detail">
           posted at <%= comment.created_at %>, on <a href="/posts/<%= comment.post.id %>"><%= comment.post.title %></a>
         </div>
       </div>
