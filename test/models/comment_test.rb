@@ -28,4 +28,9 @@ class CommentTest < ActiveSupport::TestCase
     @comment.body = " " * 8
     assert_not @comment.valid?
   end
+
+  test "comment should not be too long" do
+    @comment.body = "a" * 201
+    assert_not @comment.valid?
+  end
 end
