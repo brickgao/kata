@@ -9,4 +9,18 @@
       </div>
     </div>
   <% end %>
+  <div class="paginator">
+
+    <ul>
+    <% for i in 1..@pages_count %>
+      <% if i == @current_page %>
+      <li class="selected">
+      <% else %>
+      <li>
+      <% end %>
+        <span><a href="/?page=<%= i %>"><%= i %></a></span>
+      </li>
+    <% end %>
+    </ul>
+  </div>
 </div>

@@ -3,9 +3,9 @@ class PostsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    page = params[:page] || '1'
-    page = page.to_i - 1
-    @posts = Post.limit(posts_limit).offset(page * posts_limit)
+    @current_page = (params[:page] || '1').to_i
+    @pages_count = (Post.count(:all) / posts_limit.to_f).ceil
+    @posts = Post.limit(posts_limit).offset((@current_page - 1) * posts_limit)
   end
 
   def new
