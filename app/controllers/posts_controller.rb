@@ -3,7 +3,9 @@ class PostsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @posts = Post.all
+    page = params[:page] || '1'
+    page = page.to_i - 1
+    @posts = Post.limit(posts_limit).offset(page * posts_limit)
   end
 
   def new
@@ -31,5 +33,9 @@ class PostsController < ApplicationController
       _params[:node] = Node.find(Integer(_params[:node]))
       _params[:user] = User.find(session[:user_id])
       _params
+    end
+
+    def posts_limit
+      10
     end
 end
