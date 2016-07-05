@@ -5,16 +5,20 @@
 .profile {
   .profile-summary {
     display: flex;
-    img.avater {
-      display: inline;
-      border-radius: 4px;
+    align-items: center;
+    .avatar {
+      img {
+        border-radius: 4px;
+      }
     }
-    ul {
-      padding-left: 15px;
-      list-style-type: none;
-    }
-    li {
-      padding: 1.5px;
+    .profile-list {
+      ul {
+        padding-left: 15px;
+        list-style-type: none;
+      }
+      li {
+        padding: 1.5px;
+      }
     }
   }
 }

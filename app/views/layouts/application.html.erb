@@ -41,11 +41,16 @@
         <% else %>
           <div class="profile">
             <div class="profile-summary">
-              <ul>
-                <li><strong>Name</strong>: <%= get_user.name %></li>
-                <li><strong>Email</strong>: <%= get_user.email %></li>
-                <li>No. <%= get_user.id %>, join at <%= get_user.created_at %></li>
-              </ul>
+              <div class="avatar">
+                <img src="<%= get_gavater_img(@user.email, 80) %>"/>
+              </div>
+              <div class="profile-list">
+                <ul>
+                  <li><strong>Name</strong>: <%= get_user.name %></li>
+                  <li><strong>Email</strong>: <%= get_user.email %></li>
+                  <li>No. <%= get_user.id %>, join at <%= get_user.created_at %></li>
+                </ul>
+              </div>
             </div>
           </div>
         <% end %>

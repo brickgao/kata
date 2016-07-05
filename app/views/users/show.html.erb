@@ -1,11 +1,15 @@
 <div class="profile">
   <div class="profile-summary">
-    <img class="avater" src="<%= get_gavater_img(@user.email, 100) %>"/>
-    <ul>
-      <li><strong>Name</strong>: <%= @user.name %></li>
-      <li><strong>Email</strong>: <%= @user.email %></li>
-      <li>No. <%= @user.id %>, join at <%= @user.created_at %></li>
-    </ul>
+    <div class="avatar">
+      <img src="<%= get_gavater_img(@user.email, 100) %>"/>
+    </div>
+    <div class="profile-list">
+      <ul>
+        <li><strong>Name</strong>: <%= @user.name %></li>
+        <li><strong>Email</strong>: <%= @user.email %></li>
+        <li>No. <%= @user.id %>, join at <%= @user.created_at %></li>
+      </ul>
+    </div>
   </div>
   <div class="posts">
     <h3><strong>posts</strong></h3>
