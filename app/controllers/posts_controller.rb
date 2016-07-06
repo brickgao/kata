@@ -3,9 +3,11 @@ class PostsController < ApplicationController
   before_filter :authenticate_user!, :except => :index
 
   def index
-    @current_page = (params[:page] || '1').to_i
-    @pages_count = (Post.count(:all) / posts_limit.to_f).ceil
-    @posts = Post.limit(posts_limit).offset((@current_page - 1) * posts_limit)
+    @query_page = (params[:page] || '1').to_i
+    conditions = {}
+    conditions[:user] = User.find(params[:user_id]) if params[:user_id]
+    @pages_total = (Post.where(conditions).count / posts_limit.to_f).ceil
+    @posts = Post.where(conditions).limit(posts_limit).offset((@query_page - 1) * posts_limit)
   end
 
   def new

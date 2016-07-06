@@ -12,8 +12,8 @@
   <div class="paginator">
 
     <ul>
-    <% for i in 1..@pages_count %>
-      <% if i == @current_page %>
+    <% for i in 1..@pages_total %>
+      <% if i == @query_page %>
       <li class="selected">
       <% else %>
       <li>
