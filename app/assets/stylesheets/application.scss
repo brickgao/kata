@@ -195,6 +195,10 @@ input[type=submit] {
   }
 }
 
+button {
+  @extend input[type=submit];
+}
+
 .debug_dump {
   margin: 10px auto;
   background-color: #FFF;
@@ -237,4 +241,9 @@ input[type=submit] {
       border-radius: 6px;
     }
   }
+}
+
+.control-pad {
+  display: flex;
+  justify-content: center;
 }
