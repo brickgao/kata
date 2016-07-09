@@ -1,0 +1,24 @@
+<div class="comments">
+  <% @comments.each do |comment| %>
+    <div class="comment-body">
+      <%= comment.body %>
+    </div>
+    <div class="comment-detail">
+      <a href="/users/<%=comment.user.id %>"><%= comment.user.name %></a> posted at <%= comment.created_at %>
+    </div>
+  <% end %>
+  <div class="paginator">
+
+    <ul>
+    <% for i in 1..@pages_total %>
+      <% if i == @query_page %>
+      <li class="selected">
+      <% else %>
+      <li>
+      <% end %>
+        <span><a href="/comments?page=<%= i %>"><%= i %></a></span>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+</div>
