@@ -1,10 +1,12 @@
 <div class="comments">
   <% @comments.each do |comment| %>
-    <div class="comment-body">
-      <%= comment.body %>
-    </div>
-    <div class="comment-detail">
-      <a href="/users/<%=comment.user.id %>"><%= comment.user.name %></a> posted at <%= comment.created_at %>
+    <div class="comment-summary">
+      <div class="comment-summary-body">
+        <%= comment.body %>
+      </div>
+      <div class="comment-summary-detail">
+        <a href="/users/<%=comment.user.id %>"><%= comment.user.name %></a> posted at <%= comment.created_at %>
+      </div>
     </div>
   <% end %>
   <div class="paginator">

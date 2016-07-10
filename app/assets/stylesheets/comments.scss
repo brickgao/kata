@@ -30,3 +30,19 @@ textarea {
     }
   }
 }
+
+.comments {
+  padding: 10px .2em;
+  .comment-summary {
+    border-bottom: 1px solid #E5E5E5;
+    padding: .2em 0;
+    display: block;
+    .comment-summary-body {
+      margin: 5px 0;
+    }
+    .comment-summary-detail {
+      margin: 10px 0;
+      font-size: 70%;
+    }
+  }
+}
