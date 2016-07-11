@@ -181,7 +181,6 @@ a {
 input[type=submit] {
   &.kata-button {
     margin: .75em 0;
-    display: block;
     font-family: inherit;
     font-size: 100%;
     text-decoration: none;
@@ -244,8 +243,8 @@ button {
 }
 
 .control-pad {
-  display: flex;
-  justify-content: center;
+  display: block;
+  text-align: center;
 }
 
 .more-message {
