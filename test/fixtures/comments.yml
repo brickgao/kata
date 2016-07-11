@@ -2,5 +2,5 @@
 
 testcomment:
   body: body of the comment
-  user_id: alice
-  post_id: testbody
+  user: alice
+  post: testpost

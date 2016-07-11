@@ -33,4 +33,11 @@ class CommentsControllerTest < ActionController::TestCase
     assert_response :redirect
     assert flash[:danger]
   end
+
+  test "should show comments" do
+    get :index
+    assert_response :success
+    assert_template 'comments/index'
+    assert_select 'div.comments'
+  end
 end
