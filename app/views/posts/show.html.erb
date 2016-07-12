@@ -17,7 +17,7 @@
   <hr>
 
   <% @post.comments.each do |comment| %>
-    <div class="single-comment">
+    <div class="single-comment" id="comment-<%= comment.id %>">
       <div class="comment-body">
         <% comment.body.split(/\r?\n/).each do |paragraph| %>
           <%= paragraph %><br/>

@@ -32,7 +32,13 @@
     <% @user.comments.limit(5).each do |comment| %>
       <div class="single-comment">
         <div class="comment-body">
-          <%= comment.body %>
+        <a href="/posts/<%= comment.post.id %>#comment-<%= comment.id %>">
+          <% if comment.body.length > 50 %>
+            <%= comment.body[0..50] + "..." %>
+          <% else %>
+            <%= comment.body %>
+          <% end %>
+        </a>
         </div>
         <div class="comment-detail">
           posted at <%= comment.created_at %>, on <a href="/posts/<%= comment.post.id %>"><%= comment.post.title %></a>
