@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
     conditions = {}
     conditions[:user] = User.find(params[:user_id]) if params[:user_id]
     @pages_total = (Comment.where(conditions).count / comments_limit.to_f).ceil
-    @comments = Comment.where(conditions).limit(comments_limit).offset((@query_page - 1) * comments_limit)
+    @comments = Comment.order(id: :desc).where(conditions).limit(comments_limit).offset((@query_page - 1) * comments_limit)
   end
 
   private

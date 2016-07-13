@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     conditions = {}
     conditions[:user] = User.find(params[:user_id]) if params[:user_id]
     @pages_total = (Post.where(conditions).count / posts_limit.to_f).ceil
-    @posts = Post.where(conditions).limit(posts_limit).offset((@query_page - 1) * posts_limit)
+    @posts = Post.order(id: :desc).where(conditions).limit(posts_limit).offset((@query_page - 1) * posts_limit)
   end
 
   def new

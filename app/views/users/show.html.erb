@@ -13,7 +13,7 @@
   </div>
   <div class="posts">
     <h3><strong>posts</strong></h3>
-    <% @user.posts.limit(5).each do |post| %>
+    <% @user.posts.order(id: :desc).limit(5).each do |post| %>
       <div class="post-summary">
         <div class="post-summary-title">
           <a href="/posts/<%= post.id %>"><%= post.title %></a>
@@ -29,7 +29,7 @@
   </div>
   <div class="comment">
     <h3><strong>comments</strong></h3>
-    <% @user.comments.limit(5).each do |comment| %>
+    <% @user.comments.order(id: :desc).limit(5).each do |comment| %>
       <div class="single-comment">
         <div class="comment-body">
         <a href="/posts/<%= comment.post.id %>#comment-<%= comment.id %>">
