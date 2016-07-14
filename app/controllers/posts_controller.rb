@@ -6,6 +6,7 @@ class PostsController < ApplicationController
     @query_page = (params[:page] || '1').to_i
     conditions = {}
     conditions[:user] = User.find(params[:user_id]) if params[:user_id]
+    conditions[:node] = Node.find(params[:node_id]) if params[:node_id]
     @pages_total = (Post.where(conditions).count / posts_limit.to_f).ceil
     @posts = Post.order(id: :desc).where(conditions).limit(posts_limit).offset((@query_page - 1) * posts_limit)
   end
