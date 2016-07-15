@@ -1,4 +1,18 @@
 <div class="posts">
+  <div class="nodes-summary">
+    <ul>
+    <% @nodes.each do |node| %>
+      <% if node.id == @query_node %>
+      <li class="selected">
+      <% else %>
+      <li>
+      <% end %>
+        <span><a href="/?node_id=<%= node.id %>"><%= node.name %></a></span>
+      </li>
+    <% end %>
+    </ul>
+  </div>
+
   <% @posts.each do |post| %>
     <div class="post-summary">
       <div class="post-summary-title">
@@ -10,7 +24,6 @@
     </div>
   <% end %>
   <div class="paginator">
-
     <ul>
     <% for i in 1..@pages_total %>
       <% if i == @query_page %>
