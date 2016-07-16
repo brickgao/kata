@@ -8,7 +8,14 @@
 </div>
 <div class="post post-body">
   <% @post.body.split(/\r?\n/).each do |paragraph| %>
-    <%= paragraph %><br/>
+    <% for tag, b, e in parse_content(paragraph) %>
+      <% if tag %>
+        <a href="<%= paragraph[b...e] %>"><%= paragraph[b...e] %></a>
+      <% else %>
+        <%= paragraph[b...e] %>
+      <% end %>
+    <% end %>
+    <br/>
   <% end %>
 </div>
 
