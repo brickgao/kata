@@ -6,11 +6,13 @@ module PostsHelper
 
   def parse_content(content)
     last, ranges = 0, []
-    content.to_enum(:scan, /https?:\/\/[\S]+/i).map do |match|
-        ranges << [false, last, $`.size]
-        last = $`.size + match.length
-        ranges << [true, $`.size, last]
+    content.to_enum(:scan, /https?:\/\/[\S]+/i).map do |matched|
+        ranges << [:normal, last, $`.size]
+        last = $`.size + matched.length
+        range = [nil, $`.size, last]
+        range[0] = /.*(.jpg|.png|.gif)/.match(matched) ? :image : :link
+        ranges << range
     end
-    ranges << [false, last, content.length]
+    ranges << [:normal, last, content.length]
   end
 end

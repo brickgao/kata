@@ -9,8 +9,10 @@
 <div class="post post-body">
   <% @post.body.split(/\r?\n/).each do |paragraph| %>
     <% for tag, b, e in parse_content(paragraph) %>
-      <% if tag %>
+      <% if tag == :link %>
         <a href="<%= paragraph[b...e] %>"><%= paragraph[b...e] %></a>
+      <% elsif tag == :image %>
+        <img src="<%= paragraph[b...e] %>"/>
       <% else %>
         <%= paragraph[b...e] %>
       <% end %>
