@@ -8,16 +8,7 @@
 </div>
 <div class="post post-body">
   <% @post.body.split(/\r?\n/).each do |paragraph| %>
-    <% for tag, b, e in parse_content(paragraph) %>
-      <% if tag == :link %>
-        <a href="<%= paragraph[b...e] %>"><%= paragraph[b...e] %></a>
-      <% elsif tag == :image %>
-        <img src="<%= paragraph[b...e] %>"/>
-      <% else %>
-        <%= paragraph[b...e] %>
-      <% end %>
-    <% end %>
-    <br/>
+    <%= render 'layouts/content', :content => paragraph %>
   <% end %>
 </div>
 
@@ -29,7 +20,7 @@
     <div class="single-comment" id="comment-<%= comment.id %>">
       <div class="comment-body">
         <% comment.body.split(/\r?\n/).each do |paragraph| %>
-          <%= paragraph %><br/>
+          <%= render 'layouts/content', :content => paragraph %>
         <% end %>
       </div>
       <div class="comment-detail">
