@@ -3,6 +3,8 @@
     <a href="<%= content[b...e] %>"><%= content[b...e] %></a>
   <% elsif tag == :image %>
     <img src="<%= content[b...e] %>"/>
+  <% elsif tag == :gist %>
+    <script src="<%= content[b...e] %>.js"></script>
   <% else %>
     <%= content[b...e] %>
   <% end %>

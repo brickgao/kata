@@ -10,7 +10,13 @@ module PostsHelper
         ranges << [:normal, last, $`.size]
         last = $`.size + matched.length
         range = [nil, $`.size, last]
-        range[0] = /.*(.jpg|.png|.gif)/.match(matched) ? :image : :link
+        if /.*(.jpg|.png|.gif)/.match(matched)
+          range[0] = :image
+        elsif /(https:\/\/)?gist.github.com*/.match(matched)
+          range[0] = :gist
+        else
+          range[0] = :link
+        end
         ranges << range
     end
     ranges << [:normal, last, content.length]
