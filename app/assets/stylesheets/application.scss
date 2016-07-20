@@ -94,8 +94,8 @@ body {
     margin: 0 auto;
     justify-content: space-between;
     width: $content-min-length;
-    @mixin blockMixin($block-width) {
-      margin: 0 auto;
+    @mixin blockMixin($block-width, $margin-bottom: 0) {
+      margin: 0 auto $margin-bottom auto;
       background-color: #FFF;
       padding: 10px;
       width: $block-width;
@@ -110,7 +110,7 @@ body {
     .right {
         margin: 0 5px 0 0;
         .block {
-          @include blockMixin(250px);
+          @include blockMixin(250px, 20px);
         }
     }
   }
@@ -246,7 +246,7 @@ button {
   font-size: 80%;
   ul {
     text-align: left;
-    margin: 14px 0 2px -3px;
+    margin: 1px 0 2px -3px;
     padding: 0;
     list-style-type: none;
   }
