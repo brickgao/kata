@@ -35,9 +35,12 @@
     <div class="right">
       <div class="block">
         <% if session[:user_id].nil? %>
-          <% for i in 1..20 %>
-            我能吞下玻璃而不伤身体
-          <% end %>
+          <div class="kata-intro">
+            <p>Kata is a simple BBS</p>
+          </div>
+          <div class="control-pad">
+            <a href="/signup" target="_self"><button class="kata-button primary-button">Sign Up</button></a>
+          </div>
         <% else %>
           <div class="profile">
             <div class="profile-summary">
