@@ -48,3 +48,5 @@ group :development do
 end
 
 gem 'coveralls', require: false
+
+gem 'redis', '~>3.2'
