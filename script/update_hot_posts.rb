@@ -1,3 +1,5 @@
+require "json"
+
 def update_hot_posts
   posts = Post.order(id: :desc).limit(50)
   now, result = Time.now, []
@@ -6,10 +8,10 @@ def update_hot_posts
     result << [post.id, score]
   end
   result.sort_by! { |i| -i[1] }
-  result[0..5]
+  result.map! { |i| i[0] }
+  $redis.set "hot_posts", result[0...5].to_json
 end
 
-
 if __FILE__ == $0
-  puts update_hot_posts.inspect
+  update_hot_posts
 end

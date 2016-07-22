@@ -21,4 +21,11 @@ module PostsHelper
     end
     ranges << [:normal, last, content.length]
   end
+
+  def get_hot_posts
+    total_posts = Post.count
+    hot_posts_id = JSON.load($redis.get "hot_posts") || (total_posts - 4..total_posts).to_a
+    puts hot_posts_id.inspect
+    hot_posts_id.map { |id| Post.find id }
+  end
 end

@@ -62,6 +62,9 @@
         <% end %>
       </div>
       <div class="block">
+        <% get_hot_posts.each do |post| %>
+          <p><%= post.title %></p>
+        <% end %>
       </div>
     </div>
   </div>
