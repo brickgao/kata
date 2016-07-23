@@ -9,5 +9,4 @@ before_script:
   - RAILS_ENV=test bundle exec rake db:migrate
   - cp config/secrets.yml.default config/secrets.yml
 script:
-  - bin/rails script/update_hot_posts.rb
   - RAILS_ENV=test bundle exec rake
