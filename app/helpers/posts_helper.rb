@@ -23,9 +23,8 @@ module PostsHelper
   end
 
   def get_hot_posts
-    total_posts = Post.count
-    hot_posts_id = JSON.load($redis.get "hot_posts") || (total_posts - 4..total_posts).to_a
-    puts hot_posts_id.inspect
+    key = $redis.get "hot_posts"
+    hot_posts_id = key ? JSON.load(key) : (Post.order(id: :desc).limit(5).map { |post| post.id } )
     hot_posts_id.map { |id| Post.find id }
   end
 end
