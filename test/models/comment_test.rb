@@ -24,7 +24,7 @@ class CommentTest < ActiveSupport::TestCase
     assert_not @comment.valid?
   end
 
-  test "body should be present" do
+  test "comment should not be too short" do
     @comment.body = " " * 8
     assert_not @comment.valid?
   end

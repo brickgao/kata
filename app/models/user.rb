@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   has_many :posts
   has_many :comments
+  has_many :message_from, :class_name => "Message", :foreign_key => "from_id"
+  has_many :message_to, :class_name => "Message", :foreign_key => "to_id"
   before_save { self.email.downcase! }
   validates :name, presence: true, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i 
