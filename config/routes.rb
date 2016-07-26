@@ -55,12 +55,14 @@ Rails.application.routes.draw do
   #   end
 
   root   'posts#index'
-  get    'nodes'  => 'nodes#index'
-  get    'signup' => 'users#new'
-  post   'signup' => 'users#create'
-  get    'login'  => 'sessions#new'
-  post   'login'  => 'sessions#create'
-  get    'logout' => 'sessions#destory'
+  get    'nodes'            => 'nodes#index'
+  get    'signup'           => 'users#new'
+  post   'signup'           => 'users#create'
+  get    'login'            => 'sessions#new'
+  post   'login'            => 'sessions#create'
+  get    'logout'           => 'sessions#destory'
+  get    'messages/new'     => 'messages#new'
+  post   'messages/create'  => 'messages#create'
   resources :posts
   resources :users
   resources :comments
