@@ -36,9 +36,7 @@ class PostsControllerTest < ActionController::TestCase
       }
     }
     post :create, post_params
-    assert_response :success
-    assert_template 'posts/new'
-    assert_select 'div.error-message'
+    assert_response :redirect
   end
 
   test "should show single post" do
