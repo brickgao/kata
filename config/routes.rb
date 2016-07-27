@@ -62,7 +62,7 @@ Rails.application.routes.draw do
   post   'login'            => 'sessions#create'
   get    'logout'           => 'sessions#destory'
   get    'messages/new'     => 'messages#new'
-  post   'messages/create'  => 'messages#create'
+  post   'messages'         => 'messages#create'
   resources :posts
   resources :users
   resources :comments

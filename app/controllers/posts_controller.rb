@@ -22,7 +22,8 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to @post
     else
-      render 'new'
+      flash[:danger] = @post.errors
+      redirect_to new_post_url
     end
   end
 

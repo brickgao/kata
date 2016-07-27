@@ -1,6 +1,17 @@
 <% if flash[:danger] %>
 <div class="message error-message">
-  <div><%= flash[:danger] %></div>
+  <% if flash[:danger].is_a? Hash %>
+   <div>The form contains <%= pluralize(flash[:danger].map { |k, v| v.length }.reduce(:+), "error") %></div>
+    <ul>
+    <% flash[:danger].each do |k, v| %>
+      <% v.each do |msg| %>
+      <li><%= "#{k.capitalize} #{msg}" %></li>
+      <% end %>
+    <% end %>
+    </ul>
+  <% else %>
+    <div><%= flash[:danger] %></div>
+  <% end %>
 </div>
 <% else %>
   <% if @user && @user.errors.any? %>

@@ -166,6 +166,9 @@ a {
       @include inputText;
     }
     @include widthLength;
+    &:read-only {
+      color: #888;
+    }
   }
   textarea {
     @include inputText;

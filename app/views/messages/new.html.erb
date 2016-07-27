@@ -1,4 +1,4 @@
-<%= form_for :message, url: 'messages', html: {class: ['kata-form']} do |f| %>
+<%= form_for :message, url: '/messages', html: {class: ['kata-form']} do |f| %>
 <fieldset>
   <legend>Create Message</legend>
 
@@ -6,6 +6,8 @@
 
   <%= f.label :to %>
   <%= f.text_field :to, class: 'long-width', value: "#{@to.name}(id: #{@to.id})", readonly: true %>
+
+  <%= f.hidden_field :to_id, :value => @to.id %>
 
   <%= f.label :body %>
   <%= f.text_area :body, class: ['long-width', 'post-text'] %>
