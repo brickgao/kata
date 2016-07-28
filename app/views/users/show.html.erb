@@ -8,6 +8,11 @@
         <li><strong>Name</strong>: <%= @user.name %></li>
         <li><strong>Email</strong>: <%= @user.email %></li>
         <li>No. <%= @user.id %>, join at <%= @user.created_at %></li>
+        <li>
+          <a href="/messages/new?to_id=<%= @user.id %>" target="_self">
+            <button class="kata-button margin-less primary-button">Send message to him</button>
+          </a>
+        </li>
       </ul>
     </div>
   </div>

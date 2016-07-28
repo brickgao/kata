@@ -190,6 +190,9 @@ input[type=submit] {
     border-radius: 2px;
     padding: .5em 1em;
     border: 0 rgba(0,0,0,0);
+    &.margin-less {
+      margin: .2em 0;
+    }
     &.primary-button {
       background-color: #0078E7;
       color: #FFF;
