@@ -24,8 +24,7 @@ class UsersControllerTest < ActionController::TestCase
     User.stubs(:new).returns(new_user)
 
     post :create, post_params
-    assert_response :success
-    assert_equal @response.body, 'success'
+    assert_response :redirect
 
     User.unstub(:new)
   end
