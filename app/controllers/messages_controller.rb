@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
   def new
     to_id = params[:to_id]
     return redirect_to '/' unless to_id
-    @to = User.find(to_id)
+    @to = User.find_by_id(to_id)
     return redirect_to '/' unless @to
   end
 
