@@ -4,14 +4,14 @@ class MessagesController < ApplicationController
 
   def new
     to_id = params[:to_id]
-    return redirect_to '/' unless to_id
+    return redirect_to '/' unless to_id && to_id != current_user.id
     @to = User.find_by_id(to_id)
     return redirect_to '/' unless @to
   end
 
   def create
     @message = Message.new message_params
-    if @message.save
+    if current_user.id == message_params[:id] || @message.save
       redirect_to '/'
     else
       flash[:danger] = @message.errors
