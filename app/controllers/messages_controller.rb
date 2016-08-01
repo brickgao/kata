@@ -21,20 +21,20 @@ class MessagesController < ApplicationController
 
   def index
     @query_page = (params[:page] || '1').to_i
-    conditions = { to: current_user }
-    unqiue_from = Message.uniq.pluck(:from_id)
+    condition_to, condition_from = { to: current_user }, { from: current_user }
+    unqiue_from = Message.where(condition_to).uniq.pluck(:from_id) | Message.where(condition_from).uniq.pluck(:to_id)
     @pages_total = (unqiue_from.length / messages_limit).ceil
     @messages = []
-    unqiue_from[(@query_page - 1) * messages_limit...@query_page * messages_limit].each do |from_id|
-      latest_message_from = Message.where({ from: current_user }).first
-      latest_message_to = Message.where({ to: current_user }).first
+    unqiue_from[(@query_page - 1) * messages_limit...@query_page * messages_limit].each do |id|
+      latest_message_from = Message.order(id: :desc).where({ from: id }).first
+      latest_message_to = Message.order(id: :desc).where({ to: id }).first
       if latest_message_from && latest_message_to
         @messages << (latest_message_from.created_at > latest_message_to.created_at ? latest_message_from : latest_message_to)
       else
         @messages << (latest_message_from || latest_message_to)
       end
     end
-    render plain: @messages.inspect
+    @messages.sort_by! { |message| message.updated_at }
   end
 
   def get_unread_messages_count

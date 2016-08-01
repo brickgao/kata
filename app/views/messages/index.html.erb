@@ -1,0 +1,22 @@
+<div class="messages">
+  <% @messages.each do |message| %>
+    <div class="message-summary">
+      <div class="message-summary-from">
+        <% if current_user.id == message.from.id %>
+          <a href="/users/<%= message.to.id %>"><%= message.to.name %></a>
+        <% else %>
+          <a href="/users/<%= message.from.id %>"><%= message.from.name %></a>
+        <% end %>
+      </div>
+      <div class="message-summary-from">
+        <%= message.from.name %>
+      </div>
+      <div class="message-summary-body">
+        <% if message.is_read %>
+          (unread)
+        <% end %>
+        <%= message.body %>
+      </div>
+    </div>
+  <% end %>
+</div>
