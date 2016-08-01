@@ -61,6 +61,7 @@ Rails.application.routes.draw do
   get    'login'            => 'sessions#new'
   post   'login'            => 'sessions#create'
   get    'logout'           => 'sessions#destory'
+  get    'messages/count'   => 'messages#get_unread_messages_count'
   resources :posts
   resources :users
   resources :comments

@@ -37,6 +37,10 @@ class MessagesController < ApplicationController
     render plain: @messages.inspect
   end
 
+  def get_unread_messages_count
+    render json: { :unread_messages_count => Message.where({ to: current_user, is_read: false }).count }
+  end
+
   private
     def current_user
       User.find(session[:user_id])
