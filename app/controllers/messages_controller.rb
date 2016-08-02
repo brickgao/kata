@@ -26,8 +26,9 @@ class MessagesController < ApplicationController
     @pages_total = (unqiue_from.length / messages_limit).ceil
     @messages = []
     unqiue_from[(@query_page - 1) * messages_limit...@query_page * messages_limit].each do |id|
-      latest_message_from = Message.order(id: :desc).where({ from: id }).first
-      latest_message_to = Message.order(id: :desc).where({ to: id }).first
+      user = User.find(id)
+      latest_message_from = Message.order(id: :desc).where({ from: user, to: current_user }).first
+      latest_message_to = Message.order(id: :desc).where({ to: user, from: current_user }).first
       if latest_message_from && latest_message_to
         @messages << (latest_message_from.created_at > latest_message_to.created_at ? latest_message_from : latest_message_to)
       else
