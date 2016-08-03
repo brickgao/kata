@@ -1,5 +1,5 @@
 <div class="messages">
-  <% @messages.each do |message| %>
+  <% @messages.each do |message, has_unread| %>
     <div class="message-summary">
       <div class="message-summary-chat-with">
         Chat with 
@@ -10,7 +10,7 @@
         <% end %>
       </div>
       <div class="message-summary-body">
-        <% if current_user.id == message.to.id && message.is_read %>
+        <% if has_unread %>
           <span class="message-unread">(unread)</span>
         <% end %>
         <%= message.from.name %>: <%= message.body %>

@@ -29,17 +29,21 @@ class MessagesController < ApplicationController
       user = User.find(id)
       latest_message_from = Message.order(id: :desc).where({ from: user, to: current_user }).first
       latest_message_to = Message.order(id: :desc).where({ to: user, from: current_user }).first
+      has_unread = [
+        Message.where({ from: user, to: current_user, is_read: 0}).first,
+        Message.where({ from: current_user, to: user, is_read: 0}).first
+      ].any?
       if latest_message_from && latest_message_to
-        @messages << (latest_message_from.created_at > latest_message_to.created_at ? latest_message_from : latest_message_to)
+        @messages << [(latest_message_from.created_at > latest_message_to.created_at ? latest_message_from : latest_message_to), has_unread]
       else
-        @messages << (latest_message_from || latest_message_to)
+        @messages << [(latest_message_from || latest_message_to), has_unread]
       end
     end
-    @messages.sort_by! { |message| message.updated_at }
+    @messages.sort_by! { |message, has_unread| message.created_at }
   end
 
   def get_unread_messages_count
-    render json: { :unread_messages_count => Message.where({ to: current_user, is_read: false }).count }
+    render json: { :unread_messages_count => Message.where({ to: current_user, is_read: 0 }).count }
   end
 
   private
@@ -49,7 +53,7 @@ class MessagesController < ApplicationController
 
     def message_params
       _params = params.require(:message).permit(:body)
-      _params[:is_read], _params[:from] = false, current_user
+      _params[:is_read], _params[:from] = 0, current_user
       _params[:to] = User.find(params.require(:message)[:to_id])
       _params
     end
