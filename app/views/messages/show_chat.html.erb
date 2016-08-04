@@ -1,0 +1,11 @@
+<div class="chats">
+  <% @messages.each do |message| %>
+    <% if message.to.id == current_user.id %>
+      <div class="message-left">
+    <% else %>
+      <div class="message-right">
+    <% end %>
+        <%= message.from.name %>: <%= message.body %>
+      </div>
+  <% end %>
+</div>

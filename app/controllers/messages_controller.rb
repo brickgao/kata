@@ -47,15 +47,19 @@ class MessagesController < ApplicationController
     return redirect_to '/' unless chat_with_id && chat_with_id != current_user.id
     @chat_with_user = User.find_by_id(chat_with_id)
     return redirect_to '/' unless @chat_with_user
-    @messages = Message.order(id: :desc).where({ from: current_user, to: @chat_with_user }).limit(20).or(
-        Message.order(id: :desc).where({ to: current_user, from: @chat_with_user }).limit(20)
-    )
-    @messages.sort_by! { |message| message.create_at }
-    @messages = @messages[0...20]
+    t = Message.arel_table
+    @messages = Message.order(id: :desc).where(
+        (t[:from_id].eq(current_user.id).and(t[:to_id].eq(@chat_with_user.id))).or(
+         t[:from_id].eq(@chat_with_user.id).and(t[:to_id].eq(current_user.id))
+        )
+    ).limit(20).to_a
+    puts @messages.inspect
+    @messages.sort_by! { |message| message.created_at }
     @messages.each do |message|
       message.is_read = 1
       message.save
     end
+    render 'messages/show_chat'
   end
 
   def get_unread_messages_count
