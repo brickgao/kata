@@ -10,8 +10,10 @@
 
 <div class="header">
   <div class="header-content">
-    <a class="logo" href="/">Kata</a>
-    <input class="search" placeholder="Search" type="text" value=""/>
+    <ul class="logo-and-search">
+      <li class="logo-and-search-item"><a class="logo" href="/">Kata</a></li>
+      <li class="logo-and-search-item"><input class="search" placeholder="Search" type="text" value=""/></li>
+    </ul>
     <ul class="menu-list">
       <% if session[:user_id].nil? %>
         <li class="menu-item"><a class="menu-link" href="/login">Login</a></li>

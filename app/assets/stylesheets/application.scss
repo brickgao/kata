@@ -66,14 +66,23 @@ body {
       padding: 0 3px 0 3px;
       display: inline;
     }
+    ul.logo-and-search {
+      text-align: left;
+      margin: 10px 0 0 -40px;
+      list-style-type: none;
+      display: inline-flex;
+    }
+    li.logo-and-search-item {
+      padding: 0 3px 0 3px;
+    }
     input[type=text].search {
       height: 18px;
       border: 0;
       width: 300px;
+      margin: 2px 0 0 10px;
       box-shadow: -7px 9px 0px -7px #EBEBEB;
       transition: box-shadow 0.3s;
       background: transparent;
-      margin: 10px 0 0 -395px;
       font-family: inherit;
       font-size: 85%;
     }
