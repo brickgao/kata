@@ -31,3 +31,30 @@
     }
   }
 }
+
+.chat {
+  .message {
+    display: flex;
+  }
+  @mixin message-layout($textAlign, $justifyContent) {
+    justify-content: $justifyContent;
+    .user-profile {
+      text-align: $textAlign;
+      .name {
+        font-size: 50%;
+      }
+    }
+    .message-body {
+      width: 350px;
+      margin: 0 10px;
+      text-align: $textAlign;
+      word-break: break-all;
+    }
+  }
+  .message-left {
+    @include message-layout(left, flex-start);
+  }
+  .message-right {
+    @include message-layout(right, flex-end);
+  }
+}
