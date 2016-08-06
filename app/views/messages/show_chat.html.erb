@@ -2,10 +2,10 @@
   <% @messages.each do |message| %>
     <div class="message <%= message.to.id == current_user.id ? "message-left" : "message-right" %>">
         <% if message.to.id != current_user.id %>
-          <div class="message-body">
-            <p>
+          <div>
+            <div class="message-body">
               <%= message.body %>
-            </p>
+            </div>
           </div>
         <% end %>
         <div class="user-profile">
@@ -17,10 +17,10 @@
           </div>
         </div>
         <% if message.to.id == current_user.id %>
-          <div class="message-body">
-            <p>
+          <div>
+            <div class="message-body">
               <%= message.body %>
-            </p>
+            </div>
           </div>
         <% end %>
     </div>
