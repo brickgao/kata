@@ -9,11 +9,6 @@ class MessagesControllerTest < ActionController::TestCase
     session[:user_id] = @from.id
   end
 
-  test "should get new" do
-    get :new, { :to_id => @to.id }
-    assert_response :success
-  end
-
   test "should get unsuccessfully without to_id" do
     get :new
     assert_response :redirect
