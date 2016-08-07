@@ -58,11 +58,12 @@ class MessagesController < ApplicationController
          t[:from_id].eq(@chat_with_user.id).and(t[:to_id].eq(current_user.id))
         )
     ).limit(20).to_a
-    puts @messages.inspect
     @messages.sort_by! { |message| message.created_at }
-    @messages.each do |message|
-      message.is_read = 1
-      message.save
+    if !@messages.empty? && @messages[-1].to.id == current_user.id
+      @messages.each do |message|
+        message.is_read = 1
+        message.save
+      end
     end
     render 'messages/show_chat'
   end
