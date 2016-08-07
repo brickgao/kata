@@ -3,19 +3,24 @@ class MessagesController < ApplicationController
   before_filter :authenticate_user!
 
   def new
-    to_id = params[:to_id]
+    to_id = params[:to_id].to_i
     return redirect_to '/' unless to_id && to_id != current_user.id
     @to = User.find_by_id(to_id)
     return redirect_to '/' unless @to
+    return redirect_to "/chat?chat_with_id=#{@to.id}"
   end
 
   def create
     @message = Message.new message_params
-    if current_user.id == message_params[:id] || @message.save
-      redirect_to '/'
+    if current_user.id == message_params[:id]
+      redirect_to "/"
     else
-      flash[:danger] = @message.errors
-      redirect_to "/messages/new?to_id=#{params.require(:message)[:to_id]}"
+      if @message.save
+        redirect_to "/chat?chat_with_id=#{@message.to.id}"
+      else
+        flash[:danger] = @message.errors
+        redirect_to "/chat?chat_with_id=#{@message.to.id}"
+      end
     end
   end
 
@@ -43,7 +48,7 @@ class MessagesController < ApplicationController
   end
 
   def show_chat
-    chat_with_id = params[:chat_with_id]
+    chat_with_id = params[:chat_with_id].to_i
     return redirect_to '/' unless chat_with_id && chat_with_id != current_user.id
     @chat_with_user = User.find_by_id(chat_with_id)
     return redirect_to '/' unless @chat_with_user

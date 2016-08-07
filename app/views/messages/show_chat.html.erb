@@ -13,7 +13,7 @@
             <img src="<%= get_gavater_img(message.from.email, 50) %>"/>
           </div>
           <div class="name">
-            <%= message.from.name %>
+            <a href="/users/<%= message.from.id %>"><%= message.from.name %></a>
           </div>
         </div>
         <% if message.to.id == current_user.id %>
@@ -26,3 +26,14 @@
     </div>
   <% end %>
 </div>
+<%= form_for :message, url: '/messages', html: {class: ['kata-form']} do |f| %>
+<fieldset>
+  <%= render 'layouts/error_messages' %>
+
+  <%= f.hidden_field :to_id, :value => @chat_with_user.id %>
+
+  <%= f.text_area :body, class: ['full-width', 'post-text'] %>
+
+  <%= f.submit "Send Message", class: ['kata-button', 'primary-button'] %>
+</fieldset>
+<% end %>

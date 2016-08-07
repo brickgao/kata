@@ -10,7 +10,7 @@
         <li>No. <%= @user.id %>, join at <%= @user.created_at %></li>
         <li>
           <% if current_user.id != @user.id %>
-            <a href="/messages/new?to_id=<%= @user.id %>" target="_self">
+            <a href="/chat?chat_with_id=<%= @user.id %>" target="_self">
               <button class="kata-button margin-less primary-button">Send message to him</button>
             </a>
           <% end %>
