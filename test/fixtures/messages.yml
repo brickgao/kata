@@ -1,1 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+message_alpha:
+  body: testcontent
+  from: bob
+  to: alice
+  is_read: false
