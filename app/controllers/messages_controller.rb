@@ -34,10 +34,7 @@ class MessagesController < ApplicationController
       user = User.find(id)
       latest_message_from = Message.order(id: :desc).where({ from: user, to: current_user }).first
       latest_message_to = Message.order(id: :desc).where({ to: user, from: current_user }).first
-      has_unread = [
-        Message.where({ from: user, to: current_user, is_read: 0}).first,
-        Message.where({ from: current_user, to: user, is_read: 0}).first
-      ].any?
+      has_unread = !Message.where({ from: user, to: current_user, is_read: 0}).first.nil?
       if latest_message_from && latest_message_to
         @messages << [(latest_message_from.created_at > latest_message_to.created_at ? latest_message_from : latest_message_to), has_unread]
       else
