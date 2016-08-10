@@ -20,6 +20,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def show_setting
+    render 'setting'
+  end
+
   private
   
     def user_params

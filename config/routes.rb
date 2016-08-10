@@ -63,6 +63,7 @@ Rails.application.routes.draw do
   get    'logout'           => 'sessions#destory'
   get    'messages/count'   => 'messages#get_unread_messages_count'
   get    'chat'             => 'messages#show_chat'
+  get    'setting'          => 'users#show_setting'
   resources :posts
   resources :users
   resources :comments

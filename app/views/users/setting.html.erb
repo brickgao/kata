@@ -1,0 +1,21 @@
+<div>
+<%= form_for :setting, html: {class: ['kata-form']} do |f| %>
+<fieldset>
+  <legend>Setting</legend>
+
+  <%= render 'layouts/error_messages' %>
+
+  <%= f.label :password %>
+  <%= f.text_field :password, class: 'medium-width' %>
+
+  <%= f.label :new_password %>
+  <%= f.password_field :password, class: 'medium-width' %>
+
+  <%= f.label :new_password_confirmation %>
+  <%= f.password_field :password_confirmation, class: 'medium-width' %>
+
+  <%= f.submit "Change Setting", class: ['kata-button', 'primary-button'] %>
+
+</fieldset>
+<% end %>
+</div>
