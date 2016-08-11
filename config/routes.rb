@@ -64,6 +64,7 @@ Rails.application.routes.draw do
   get    'messages/count'   => 'messages#get_unread_messages_count'
   get    'chat'             => 'messages#show_chat'
   get    'setting'          => 'users#show_setting'
+  post   'setting'          => 'users#change_setting'
   resources :posts
   resources :users
   resources :comments
