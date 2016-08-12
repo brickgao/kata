@@ -30,6 +30,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
+    $redis.hincrby(:post_hit, params[:id], 1)
   end
 
   private
