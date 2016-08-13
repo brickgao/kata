@@ -5,7 +5,8 @@ class NodeTest < ActiveSupport::TestCase
   #   assert true
   # end
   def setup
-    @node = Node.new(name: "Test Node")
+    @node = Node.new(name: "Test Node",
+                     summary: "Here is test node")
   end
 
   test "should be valid" do
