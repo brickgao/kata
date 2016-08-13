@@ -1,17 +1,23 @@
 <div class="posts">
-  <div class="nodes-summary">
-    <ul>
-    <% @nodes.each do |node| %>
-      <% if node.id == @query_node %>
-      <li class="selected">
-      <% else %>
-      <li>
+  <% if @query_user.nil? && @query_node.nil? %>
+    <div class="nodes-list">
+      <ul>
+      <% @nodes.each do |node| %>
+        <li>
+          <span><a href="/?node_id=<%= node.id %>"><%= node.name %></a></span>
+        </li>
       <% end %>
-        <span><a href="/?node_id=<%= node.id %>"><%= node.name %></a></span>
-      </li>
+      </ul>
+    </div>
+  <% else %>
+    <% if !@query_node.nil? %>
+      <div class="node">
+        <div class="node-name"><%= @query_node.name %></div>
+        <div class="node-summary"><%= @query_node.summary %></div>
+      </div>
     <% end %>
-    </ul>
-  </div>
+  <% end %>
+ 
 
   <% @posts.each do |post| %>
     <div class="post-summary">
