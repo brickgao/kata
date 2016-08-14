@@ -6,7 +6,8 @@ class UserTest < ActiveSupport::TestCase
   # end
   def setup
     @user = User.new(name: "Example User", email: "user@example.com",
-                     password: "badpasswd", password_confirmation: "badpasswd")
+                     password: "badpasswd", password_confirmation: "badpasswd",
+                     user_type: 0)
   end
 
   test "should be valid" do
@@ -72,6 +73,11 @@ class UserTest < ActiveSupport::TestCase
 
   test "password should have a minimum length" do
     @user.password = @user.password_confirmation = "2" * 5
+    assert_not @user.valid?
+  end
+
+  test "user_type should be present" do
+    @user.user_type = nil
     assert_not @user.valid?
   end
 end
