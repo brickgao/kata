@@ -65,6 +65,7 @@ Rails.application.routes.draw do
   get    'chat'             => 'messages#show_chat'
   get    'setting'          => 'users#show_setting'
   post   'setting'          => 'users#change_setting'
+  get    'manage'           => 'manage#index'
   resources :posts
   resources :users
   resources :comments
