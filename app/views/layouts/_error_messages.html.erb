@@ -18,6 +18,8 @@
     <% @local_model_var = @user %>
   <% elsif @post && @post.errors.any? %>
     <% @local_model_var = @post %>
+  <% elsif @node && @node.errors.any? %>
+    <% @local_model_var = @node %>
   <% end %>
   <% if @local_model_var %>
     <div class="message error-message">

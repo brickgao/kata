@@ -55,7 +55,6 @@ Rails.application.routes.draw do
   #   end
 
   root   'posts#index'
-  get    'nodes'            => 'nodes#index'
   get    'signup'           => 'users#new'
   post   'signup'           => 'users#create'
   get    'login'            => 'sessions#new'
@@ -66,6 +65,7 @@ Rails.application.routes.draw do
   get    'setting'          => 'users#show_setting'
   post   'setting'          => 'users#change_setting'
   get    'manage'           => 'manage#index'
+  resources :nodes
   resources :posts
   resources :users
   resources :comments

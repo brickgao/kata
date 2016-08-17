@@ -1,0 +1,16 @@
+<%= form_for @node, html: {class: ['kata-form']} do |f| %>
+<fieldset>
+  <legend>Create Node</legend>
+
+  <%= render 'layouts/error_messages' %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name, class: 'medium-width' %>
+
+  <%= f.label :summary %>
+  <%= f.text_field :summary, class: 'medium-width' %>
+
+  <%= f.submit "Create Node", class: ['kata-button', 'primary-button'] %>
+
+</fieldset>
+<% end %>
