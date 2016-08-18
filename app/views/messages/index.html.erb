@@ -4,16 +4,16 @@
       <div class="message-summary-chat-with">
         Chat with 
         <% if current_user.id == message.from.id %>
-          <a href="/users/<%= message.to.id %>"><%= message.to.name %></a>
+          <a href="/users/<%= message.to.id %>" target="_self"><%= message.to.name %></a>
         <% else %>
-          <a href="/users/<%= message.from.id %>"><%= message.from.name %></a>
+          <a href="/users/<%= message.from.id %>" target="_self"><%= message.from.name %></a>
         <% end %>
       </div>
       <div class="message-summary-body">
         <% if has_unread %>
           <span class="message-unread">(unread)</span>
         <% end %>
-        <a href="/chat?chat_with_id=<%= message.to.id == current_user.id ? message.from.id : message.to.id %>">
+        <a href="/chat?chat_with_id=<%= message.to.id == current_user.id ? message.from.id : message.to.id %>" target="_self">
           <%= message.from.name %>: <%= message.body %>
         </a>
       </div>

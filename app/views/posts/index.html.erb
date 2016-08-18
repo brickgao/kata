@@ -4,7 +4,7 @@
       <ul>
       <% @nodes.each do |node| %>
         <li>
-          <span><a href="/?node_id=<%= node.id %>"><%= node.name %></a></span>
+          <span><a href="/?node_id=<%= node.id %>" target="_self"><%= node.name %></a></span>
         </li>
       <% end %>
       </ul>
@@ -25,7 +25,7 @@
         <a href="/posts/<%= post.id %>" target="_self"><%= post.title %></a>
       </div>
       <div class="post-summary-author">
-        <a href="/users/<%=post.user.id %>"><%= post.user.name %></a> posted at <%= post.created_at %>, on <a href="/?node_id=<%= post.node.id %>"><%= post.node.name %></a>
+        <a href="/users/<%=post.user.id %>" target="_self"><%= post.user.name %></a> posted at <%= post.created_at %>, on <a href="/?node_id=<%= post.node.id %>" target="_self"><%= post.node.name %></a>
       </div>
     </div>
   <% end %>
@@ -37,7 +37,7 @@
       <% else %>
       <li>
       <% end %>
-        <span><a href="/?page=<%= i %>"><%= i %></a></span>
+        <span><a href="/?page=<%= i %>" target="_self"><%= i %></a></span>
       </li>
     <% end %>
     </ul>

@@ -13,7 +13,7 @@
             <img src="<%= get_gavater_img(message.from.email, 50) %>"/>
           </div>
           <div class="name">
-            <a href="/users/<%= message.from.id %>"><%= message.from.name %></a>
+            <a href="/users/<%= message.from.id %>" target="_self"><%= message.from.name %></a>
           </div>
         </div>
         <% if message.to.id == current_user.id %>

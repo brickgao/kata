@@ -2,7 +2,7 @@
   <% @comments.each do |comment| %>
     <div class="comment-summary">
       <div class="comment-summary-body">
-        <a href="/posts/<%= comment.post.id %>#comment-<%= comment.id %>">
+        <a href="/posts/<%= comment.post.id %>#comment-<%= comment.id %>" target="_self">
         <% if comment.body.length > 50 %>
           <%= comment.body[0..50] + "..." %>
         <% else %>
@@ -11,7 +11,7 @@
         </a>
       </div>
       <div class="comment-summary-detail">
-        <a href="/users/<%= comment.user.id %>"><%= comment.user.name %></a> posted at <%= comment.created_at %>, on <a href="/posts/<%= comment.post.id %>"><%= comment.post.title %></a>
+        <a href="/users/<%= comment.user.id %>" target="_self"><%= comment.user.name %></a> posted at <%= comment.created_at %>, on <a href="/posts/<%= comment.post.id %>" target="_self"><%= comment.post.title %></a>
       </div>
     </div>
   <% end %>
@@ -24,7 +24,7 @@
       <% else %>
       <li>
       <% end %>
-        <span><a href="/comments?page=<%= i %>"><%= i %></a></span>
+        <span><a href="/comments?page=<%= i %>" target="_self"><%= i %></a></span>
       </li>
     <% end %>
     </ul>

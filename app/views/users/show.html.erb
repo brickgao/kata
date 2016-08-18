@@ -48,7 +48,7 @@
         </a>
         </div>
         <div class="comment-detail">
-          posted at <%= comment.created_at %>, on <a href="/posts/<%= comment.post.id %>"><%= comment.post.title %></a>
+          posted at <%= comment.created_at %>, on <a href="/posts/<%= comment.post.id %>" target="_self"><%= comment.post.title %></a>
         </div>
       </div>
     <% end %>

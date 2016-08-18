@@ -3,7 +3,7 @@
     <%= @post.title %>
   </div>
   <div class="post-author">
-    <a href="/users/<%= @post.user.id %>"><%= @post.user.name %></a> posted at <%= @post.created_at %>, on <%= @post.node.name %>
+    <a href="/users/<%= @post.user.id %>" target="_self"><%= @post.user.name %></a> posted at <%= @post.created_at %>, on <%= @post.node.name %>
   </div>
 </div>
 <div class="post post-body">
@@ -24,7 +24,7 @@
         <% end %>
       </div>
       <div class="comment-detail">
-        <a href="/users/<%=comment.user.id %>"><%= comment.user.name %></a> posted at <%= comment.created_at %>
+        <a href="/users/<%=comment.user.id %>" target="_self"><%= comment.user.name %></a> posted at <%= comment.created_at %>
       </div>
     </div>
   <% end %>
