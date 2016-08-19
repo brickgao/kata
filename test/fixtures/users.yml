@@ -2,9 +2,11 @@
 alice:
   name: Alice
   email: alice@test.com
+  user_type: 1
   password_digest: <%= User.digest('badpassword') %>
 
 bob:
   name: Bob
   email: bob@test.com
+  user_type: 0
   password_digest: <%= User.digest('anotherbadpassword') %>

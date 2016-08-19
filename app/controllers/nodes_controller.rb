@@ -16,7 +16,6 @@ class NodesController < ApplicationController
     if @node.save
       redirect_to '/'
     else
-      puts @node.errors
       render 'new'
     end
   end
