@@ -14,10 +14,12 @@
       <div class="node">
         <div class="node-name"><%= @query_node.name %></div>
         <div class="node-summary"><%= @query_node.summary %></div>
-        <div class="node-action">
-          <a href="/nodes/<%= @query_node.id %>/edit">Edit</a>
-          <a href="#">Delete</a>
-        </div>
+        <% if current_user.user_type == 1 %>
+          <div class="node-action">
+            <a href="/nodes/<%= @query_node.id %>/edit">Edit</a>
+            <a href="#">Delete</a>
+          </div>
+        <% end %>
       </div>
     <% end %>
   <% end %>

@@ -20,6 +20,10 @@ class NodesController < ApplicationController
     end
   end
 
+  def edit
+    @node = Node.find(params.require(:id))
+  end
+
   private
     def post_params
       _params = params.require(:node).permit(:name, :summary)
