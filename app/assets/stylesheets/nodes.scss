@@ -8,6 +8,14 @@
     font-size: 80%;
   }
   .node-action {
+    a {
+      &:link, &:visited {
+        color: #0078E7;
+      }
+      &:hover, &:active {
+        color: #353846;
+      }
+    }
     font-size: 80%;
   }
 }
