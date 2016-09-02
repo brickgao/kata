@@ -65,6 +65,7 @@ Rails.application.routes.draw do
   get    'setting'          => 'users#show_setting'
   post   'setting'          => 'users#change_setting'
   get    'manage'           => 'manage#index'
+  get    'search'           => 'search#search'
   resources :nodes
   resources :posts
   resources :users

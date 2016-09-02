@@ -3,9 +3,11 @@ rvm:
   - 2.2
 services:
   - redis-server
+  - elasticsearch
 install:
   - RAILS_ENV=test bundle install --jobs=3 --retry=3
 before_script:
+  - sleep 10
   - RAILS_ENV=test bundle exec rake db:migrate
   - cp config/secrets.yml.default config/secrets.yml
 script:

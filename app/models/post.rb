@@ -1,4 +1,10 @@
+require 'elasticsearch/model'
+
+
 class Post < ActiveRecord::Base
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
   belongs_to :node
   belongs_to :user
   has_many :comments

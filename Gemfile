@@ -47,6 +47,10 @@ group :development do
   gem 'spring'
 end
 
+gem 'elasticsearch-model', '~> 0.1.9'
+
+gem 'elasticsearch-rails', '~> 0.1.9'
+
 gem 'coveralls', require: false
 
 gem 'redis', '~>3.2'
