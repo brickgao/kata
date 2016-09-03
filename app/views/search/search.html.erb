@@ -1,4 +1,15 @@
-<% for post in @posts %>
-  <div><%= post.title %></div>
-  <div><%= post.body %></div>
-<% end %>
+<div class="posts">
+  <div>
+    <%= @posts.results.total %> result(s) match <em><%= @words_search %></em>
+  </div>
+  <% @posts.records.records.each do |post| %>
+    <div class="post-summary">
+      <div class="post-summary-title">
+        <a href="/posts/<%= post.id %>" target="_self"><%= post.title %></a>
+      </div>
+      <div class="post-summary-author">
+        <a href="/users/<%=post.user.id %>" target="_self"><%= post.user.name %></a> posted at <%= post.created_at %>, on <a href="/?node_id=<%= post.node.id %>" target="_self"><%= post.node.name %></a>
+      </div>
+    </div>
+  <% end %>
+</div>
