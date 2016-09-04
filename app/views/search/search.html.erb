@@ -2,13 +2,38 @@
   <div>
     <%= @posts.results.total %> result(s) match <em><%= @words_search %></em>
   </div>
-  <% @posts.records.records.each do |post| %>
+  <% for i in 0...@search_records.length do %>
     <div class="post-summary">
       <div class="post-summary-title">
-        <a href="/posts/<%= post.id %>" target="_self"><%= post.title %></a>
+        <a href="/posts/<%= @search_records[i].id %>" target="_self">
+          <% if @search_results[i].highlight.title.nil? %>
+            <%= @search_records[i].title %>
+          <% else %>
+            <% generate_highlight_group(@search_results[i].highlight.title.join("...")).each do |word| %>
+              <% if word[1] %>
+                <em><%= word[0] %></em>
+              <% else %>
+                <%= word[0] %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </a>
       </div>
       <div class="post-summary-author">
-        <a href="/users/<%=post.user.id %>" target="_self"><%= post.user.name %></a> posted at <%= post.created_at %>, on <a href="/?node_id=<%= post.node.id %>" target="_self"><%= post.node.name %></a>
+        <a href="/users/<%= @search_records[i].user.id %>" target="_self"><%= @search_records[i].user.name %></a> posted at <%= @search_records[i].created_at %>, on <a href="/?node_id=<%= @search_records[i].node.id %>" target="_self"><%= @search_records[i].node.name %></a>
+      </div>
+      <div class="post-summary-body">
+        <% if @search_results[i].highlight.body.nil? %>
+          <%= @search_records[i].body %>
+        <% else %>
+          <% generate_highlight_group(@search_results[i].highlight.body.join("...")).each do |word| %>
+            <% if word[1] %>
+              <em><%= word[0] %></em>
+            <% else %>
+              <%= word[0] %>
+            <% end %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   <% end %>

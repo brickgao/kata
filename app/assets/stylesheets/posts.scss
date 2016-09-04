@@ -30,7 +30,8 @@ textarea {
 
 .posts {
   em {
-    color: red;
+    font-style: normal;
+    color: #CC0033;
   }
   padding: 10px .2em;
   h3 {
@@ -46,6 +47,10 @@ textarea {
     .post-summary-author {
       margin: 10px 0;
       font-size: 70%;
+    }
+    .post-summary-body {
+      margin: 10px 0;
+      font-size: 80%;
     }
   }
 }
