@@ -37,4 +37,17 @@
       </div>
     </div>
   <% end %>
+  <div class="paginator">
+    <ul>
+    <% for i in 1..@pages_total %>
+      <% if i == @current_page %>
+      <li class="selected">
+      <% else %>
+      <li>
+      <% end %>
+        <span><a href="/search?query=<%= @words_search %>&page=<%= i %>" target="_self"><%= i %></a></span>
+      </li>
+    <% end %>
+    </ul>
+  </div>
 </div>
