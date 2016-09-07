@@ -1,5 +1,4 @@
 class SearchController < ApplicationController
-  add_template_helper SearchHelper
   before_filter :authenticate_user!
 
   def search

@@ -9,13 +9,7 @@
           <% if @search_results[i].highlight.title.nil? %>
             <%= @search_records[i].title %>
           <% else %>
-            <% generate_highlight_group(@search_results[i].highlight.title.join("...")).each do |word| %>
-              <% if word[1] %>
-                <em><%= word[0] %></em>
-              <% else %>
-                <%= word[0] %>
-              <% end %>
-            <% end %>
+            <%= sanitize @search_results[i].highlight.title.join("..."), tags: ["em"] %>
           <% end %>
         </a>
       </div>
@@ -26,13 +20,7 @@
         <% if @search_results[i].highlight.body.nil? %>
           <%= @search_records[i].body %>
         <% else %>
-          <% generate_highlight_group(@search_results[i].highlight.body.join("...")).each do |word| %>
-            <% if word[1] %>
-              <em><%= word[0] %></em>
-            <% else %>
-              <%= word[0] %>
-            <% end %>
-          <% end %>
+          <%= sanitize @search_results[i].highlight.body.join("..."), tags: ["em"] %>
         <% end %>
       </div>
     </div>
