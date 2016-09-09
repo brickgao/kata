@@ -1,0 +1,10 @@
+<% for tag, b, e in parse_content(content) %>
+  <% if tag == :link %>
+    <a href="<%= content[b...e] %>"><%= content[b...e] %></a>
+  <% elsif tag == :image %>
+    <img src="<%= content[b...e] %>"/>
+  <% else %>
+    <%= content[b...e] %>
+  <% end %>
+<% end %>
+<br/>
