@@ -3,19 +3,32 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .node {
-  .node-summary {
-    margin: 10px 0;
-    font-size: 80%;
-  }
-  .node-action {
-    a {
-      &:link, &:visited {
-        color: #0078E7;
-      }
-      &:hover, &:active {
-        color: #353846;
-      }
+  display: flex;
+  align-items: center;
+  .node-icon {
+    img {
+      width: 70px;
+      height: 70px;
+      border-radius: 4px;
     }
-    font-size: 80%;
   }
+  .node-text-list {
+    margin: 0 10px;
+    .node-summary {
+      margin: 10px 0;
+      font-size: 80%;
+    }
+  }
+}
+
+.node-action {
+  a {
+    &:link, &:visited {
+      color: #0078E7;
+    }
+    &:hover, &:active {
+      color: #353846;
+    }
+  }
+  font-size: 80%;
 }

@@ -12,15 +12,20 @@
   <% else %>
     <% if !@query_node.nil? %>
       <div class="node">
-        <div class="node-name"><%= @query_node.name %></div>
-        <div class="node-summary"><%= @query_node.summary %></div>
-        <% if current_user.user_type == 1 %>
-          <div class="node-action">
-            <a href="/nodes/<%= @query_node.id %>/edit">Edit</a>
-            <a href="#">Delete</a>
-          </div>
-        <% end %>
+        <div class="node-icon">
+          <img src="<%= @query_node.icon_url %>"/>
+        </div>
+        <div class="node-text-list">
+          <div class="node-name"><%= @query_node.name %></div>
+          <div class="node-summary"><%= @query_node.summary %></div>
+        </div>
       </div>
+      <% if current_user.user_type == 1 %>
+        <div class="node-action">
+          <a href="/nodes/<%= @query_node.id %>/edit">Edit</a>
+          <a href="#">Delete</a>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
  
