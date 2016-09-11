@@ -83,7 +83,8 @@ class NodesControllerTest < ActionController::TestCase
       {
         :node => {
             :name => 'samplename',
-            :summary => 'samplesummary'
+            :summary => 'samplesummary',
+            :icon_url => 'sampleurl'
         }
       }
     end

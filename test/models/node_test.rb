@@ -6,7 +6,8 @@ class NodeTest < ActiveSupport::TestCase
   # end
   def setup
     @node = Node.new(name: "Test Node",
-                     summary: "Here is test node")
+                     summary: "Here is test node",
+                     icon_url: "sample url")
   end
 
   test "should be valid" do
