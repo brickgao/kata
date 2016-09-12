@@ -7,6 +7,10 @@ class SearchControllerTest < ActionController::TestCase
   def setup
     @user = users(:alice)
     session[:user_id] = @user.id
+    Post.__elasticsearch__.index_name = 'posts_test'
+    Post.__elasticsearch__.create_index!
+    Post.__elasticsearch__.import
+    Post.__elasticsearch__.refresh_index!
   end
 
   test "should render successfully" do
