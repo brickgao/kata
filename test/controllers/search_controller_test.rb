@@ -16,5 +16,7 @@ class SearchControllerTest < ActionController::TestCase
   test "should render successfully" do
     get :search, query: "test"
     assert_response :success
+    assert_template 'search'
+    assert_select 'div.post-summary'
   end
 end
