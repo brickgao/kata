@@ -18,4 +18,29 @@ class NodeTest < ActiveSupport::TestCase
     @node.name = " " * 10
     assert_not @node.valid?
   end
+
+  test "summary should be present" do
+    @node.summary = " " * 10
+    assert_not @node.valid?
+  end
+
+  test "icon_url should be present" do
+    @node.icon_url = " " * 10
+    assert_not @node.valid?
+  end
+
+  test "name should not be too long" do
+    @node.name = "a" * 31
+    assert_not @node.valid?
+  end
+
+  test "summary should not be too long" do
+    @node.name = "a" * 51
+    assert_not @node.valid?
+  end
+
+  test "icon_url should not be too long" do
+    @node.name = "a" * 501
+    assert_not @node.valid?
+  end
 end
