@@ -7,7 +7,7 @@ class NodeTest < ActiveSupport::TestCase
   def setup
     @node = Node.new(name: "Test Node",
                      summary: "Here is test node",
-                     icon_url: "sample url")
+                     icon_url: "http://sampleurl.jpg")
   end
 
   test "should be valid" do
@@ -35,12 +35,17 @@ class NodeTest < ActiveSupport::TestCase
   end
 
   test "summary should not be too long" do
-    @node.name = "a" * 51
+    @node.summary = "a" * 51
     assert_not @node.valid?
   end
 
   test "icon_url should not be too long" do
-    @node.name = "a" * 501
+    @node.icon_url = "a" * 501
+    assert_not @node.valid?
+  end
+
+  test "icon_url should be valid" do
+    @node.icon_url = "http://xxxx"
     assert_not @node.valid?
   end
 end

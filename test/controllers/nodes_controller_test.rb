@@ -84,7 +84,7 @@ class NodesControllerTest < ActionController::TestCase
         :node => {
             :name => 'samplename',
             :summary => 'samplesummary',
-            :icon_url => 'sampleurl'
+            :icon_url => 'http://sampleurl.jpg'
         }
       }
     end
