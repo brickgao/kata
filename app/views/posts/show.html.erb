@@ -1,9 +1,14 @@
 <div class="post post-header">
-  <div class="post-title">
-    <%= @post.title %>
+  <div class="post-header-text">
+    <div class="post-title">
+      <%= @post.title %>
+    </div>
+    <div class="post-author">
+      <a href="/users/<%= @post.user.id %>" target="_self"><%= @post.user.name %></a> posted at <%= @post.created_at %>, on <%= @post.node.name %>
+    </div>
   </div>
-  <div class="post-author">
-    <a href="/users/<%= @post.user.id %>" target="_self"><%= @post.user.name %></a> posted at <%= @post.created_at %>, on <%= @post.node.name %>
+  <div class="avatar">
+    <img src="<%= get_gavater_img(@post.user.email, 70) %>"/>
   </div>
 </div>
 <div class="post post-body">

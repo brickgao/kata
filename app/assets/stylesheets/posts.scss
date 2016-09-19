@@ -13,17 +13,26 @@ textarea {
 .post {
   padding: 10px .2em;
   &.post-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     border-bottom: 1px solid #E5E5E5;
     padding: .2em 0;
-    display: block;
-    .post-title {
-      margin: 5px 0;
-      color: black;
-      font-size: 150%;
+    .post-header-text {
+      .post-title {
+        margin: 5px 0;
+        color: black;
+        font-size: 150%;
+      }
+      .post-author {
+        margin: 10px 0;
+        font-size: 80%;
+      }
     }
-    .post-author {
-      margin: 10px 0;
-      font-size: 80%;
+    .avatar {
+      img {
+        border-radius: 4px;
+      }
     }
   }
 }
