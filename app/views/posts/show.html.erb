@@ -23,13 +23,18 @@
 
   <% @post.comments.each do |comment| %>
     <div class="single-comment" id="comment-<%= comment.id %>">
-      <div class="comment-body">
-        <% comment.body.split(/\r?\n/).each do |paragraph| %>
-          <%= render 'layouts/content', :content => paragraph %>
-        <% end %>
+      <div class="avatar">
+        <img src="<%= get_gavater_img(comment.user.email, 50) %>"/>
       </div>
-      <div class="comment-detail">
-        <a href="/users/<%=comment.user.id %>" target="_self"><%= comment.user.name %></a> posted at <%= comment.created_at %>
+      <div class="comment-right-part">
+        <div class="comment-body">
+          <% comment.body.split(/\r?\n/).each do |paragraph| %>
+            <%= render 'layouts/content', :content => paragraph %>
+          <% end %>
+        </div>
+        <div class="comment-detail">
+          <a href="/users/<%=comment.user.id %>" target="_self"><%= comment.user.name %></a> posted at <%= comment.created_at %>
+        </div>
       </div>
     </div>
   <% end %>

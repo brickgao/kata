@@ -18,15 +18,24 @@ textarea {
     background-color: #EBEBEB;
   }
   .single-comment {
-    border-bottom: 1px solid #E5E5E5;
-    margin: .3em 0;
-    padding: .2em 0;
-    display: block;
-    .comment-body {
+    display: flex;
+    align-items: center;
+    .comment-right-part {
+      border-bottom: 1px solid #E5E5E5;
+      margin: .3em 0;
+      padding: .2em 0;
+      .comment-body {
+      }
+      .comment-detail {
+        margin: 10px 0;
+        font-size: 70%;
+      }
     }
-    .comment-detail {
-      margin: 10px 0;
-      font-size: 70%;
+    .avatar {
+      margin: 0 10px;
+      img {
+        border-radius: 4px;
+      }
     }
   }
 }
