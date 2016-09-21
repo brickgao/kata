@@ -280,6 +280,9 @@ button {
 .control-pad {
   display: block;
   text-align: center;
+  .less-margin {
+    margin: 5px 0;
+  }
 }
 
 .more-message {
