@@ -1,24 +1,33 @@
 <div class="messages">
   <% @messages.each do |message, has_unread| %>
     <div class="message-summary">
-      <div class="message-summary-chat-with">
-        Chat with 
+      <div class="avatar">
         <% if current_user.id == message.from.id %>
-          <a href="/users/<%= message.to.id %>" target="_self"><%= message.to.name %></a>
+          <img src="<%= get_gavater_img(message.to.email, 70) %>"/>
         <% else %>
-          <a href="/users/<%= message.from.id %>" target="_self"><%= message.from.name %></a>
+          <img src="<%= get_gavater_img(message.from.email, 70) %>"/>
         <% end %>
       </div>
-      <div class="message-summary-body">
-        <% if has_unread %>
-          <span class="message-unread">(unread)</span>
-        <% end %>
-        <a href="/chat?chat_with_id=<%= message.to.id == current_user.id ? message.from.id : message.to.id %>" target="_self">
-          <%= message.from.name %>: <%= message.body %>
-        </a>
-      </div>
-      <div class="message-summary-time">
-        Sent at <%= message.created_at %>
+      <div class="message-summary-right">
+        <div class="message-summary-chat-with">
+          Chat with 
+          <% if current_user.id == message.from.id %>
+            <a href="/users/<%= message.to.id %>" target="_self"><%= message.to.name %></a>
+          <% else %>
+            <a href="/users/<%= message.from.id %>" target="_self"><%= message.from.name %></a>
+          <% end %>
+        </div>
+        <div class="message-summary-body">
+          <% if has_unread %>
+            <span class="message-unread">(unread)</span>
+          <% end %>
+          <a href="/chat?chat_with_id=<%= message.to.id == current_user.id ? message.from.id : message.to.id %>" target="_self">
+            <%= message.from.name %>: <%= message.body %>
+          </a>
+        </div>
+        <div class="message-summary-time">
+          Sent at <%= message.created_at %>
+        </div>
       </div>
     </div>
   <% end %>

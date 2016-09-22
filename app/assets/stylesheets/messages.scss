@@ -7,27 +7,36 @@
   .message-summary {
     border-bottom: 1px solid #E5E5E5;
     padding: .2em 0;
-    display: block;
-    .message-summary-chat-with {
-      $chat-with-font-color: #9E9E9E;
-      $chat-with-hover-font-color: #CCCCCC;
-      color: $chat-with-font-color;
-      margin: 5px 0;
-      a {
-        &:link, &:visited {
-          color: $chat-with-font-color;
-        }
-        &:hover, &:active {
-          color: $chat-with-hover-font-color;
+    display: flex;
+    align-items: center;
+    .message-summary-right {
+      .message-summary-chat-with {
+        $chat-with-font-color: #9E9E9E;
+        $chat-with-hover-font-color: #CCCCCC;
+        color: $chat-with-font-color;
+        margin: 5px 0;
+        a {
+          &:link, &:visited {
+            color: $chat-with-font-color;
+          }
+          &:hover, &:active {
+            color: $chat-with-hover-font-color;
+          }
         }
       }
+      .message-summary-body > span.message-unread {
+        color: #0078E7;
+      }
+      .message-summary-time {
+        margin: 10px 0;
+        font-size: 70%;
+      }
     }
-    .message-summary-body > span.message-unread {
-      color: #0078E7;
-    }
-    .message-summary-time {
-      margin: 10px 0;
-      font-size: 70%;
+    .avatar {
+      margin: 0 10px;
+      img {
+        border-radius: 4px;
+      }
     }
   }
 }
