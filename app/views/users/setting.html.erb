@@ -1,6 +1,6 @@
 <%= form_for :setting, html: {class: ['kata-form']} do |f| %>
 <fieldset>
-  <legend>Setting</legend>
+  <legend>Password</legend>
 
   <%= render 'layouts/error_messages' %>
 
@@ -13,7 +13,18 @@
   <%= f.label :new_password_confirmation %>
   <%= f.password_field :new_password_confirmation, class: 'medium-width' %>
 
-  <%= f.submit "Change Setting", class: ['kata-button', 'primary-button'] %>
+  <%= f.submit "Change Password", class: ['kata-button', 'primary-button'] %>
 
 </fieldset>
 <% end %>
+
+<div class="avatar-setting">
+  <legend>Avatar</legend>
+  <div>
+    <p>Current avatar:</p>
+    <div class="avatar">
+       <img src="<%= get_gavater_img(get_user.email, 70) %>"/>
+    </div>
+  </div>
+  <a href="https://gravatar.com" target="_blank"><button class="kata-button primary-button less-margin">Change Gavatar</button></a>
+</div>

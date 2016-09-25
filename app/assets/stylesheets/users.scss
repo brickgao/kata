@@ -22,3 +22,16 @@
     }
   }
 }
+
+.avatar-setting {
+  margin: 0 2px;
+  padding: 0 0.75em;
+  legend {
+    width: 100%;
+    color: black;
+    font-size: 150%;
+    border-bottom: 1px solid #E5E5E5;
+    padding: .2em 0;
+    display: block;
+  }
+}
