@@ -34,4 +34,9 @@
     padding: .2em 0;
     display: block;
   }
+  .current-avatar {
+    img {
+      border-radius: 4px;
+    }
+  }
 }
