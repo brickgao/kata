@@ -21,6 +21,13 @@
 
   <hr>
 
+  <% if @post.comments.length != 0 %>
+    <div class="comment-total">
+      <%= pluralize(@post.comments.length, "comment") %> totally
+    </div>
+  <% end %>
+
+
   <% @post.comments.each do |comment| %>
     <div class="single-comment" id="comment-<%= comment.id %>">
       <div class="avatar">
