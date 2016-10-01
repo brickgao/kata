@@ -5,7 +5,7 @@ class PostsControllerTest < ActionController::TestCase
   #   assert true
   # end
   def setup
-    @post = posts(:testpost)
+    @post, @post2 = posts(:testpost), posts(:testpost2)
     @node = nodes(:testnode)
     session[:user_id] = users(:alice).id
   end
@@ -51,5 +51,19 @@ class PostsControllerTest < ActionController::TestCase
     assert_response :success
     assert_template 'posts/index'
     assert_select 'div.posts'
+  end
+
+  test "should show the count of comments if there are comments" do
+    get :show, id: @post.id
+    assert_response :success
+    assert_template 'posts/show'
+    assert_select 'div.comment-total'
+  end
+
+  test "should not show the count of comments if there is no comment" do
+    get :show, id: @post2.id
+    assert_response :success
+    assert_template 'posts/show'
+    assert_select 'div.comment-total', false
   end
 end

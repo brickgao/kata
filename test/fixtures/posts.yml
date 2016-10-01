@@ -4,3 +4,9 @@ testpost:
   body: testbody
   node: testnode
   user: alice
+
+testpost2:
+  title: testtitle2
+  body: testbody2
+  node: testnode
+  user: alice
