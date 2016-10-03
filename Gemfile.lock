@@ -144,6 +144,8 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    sentry-raven (1.2.3)
+      faraday (>= 0.7.6, < 0.10.x)
     simplecov (0.11.2)
       docile (~> 1.1.0)
       json (~> 1.8)
@@ -193,6 +195,7 @@ DEPENDENCIES
   redis (~> 3.2)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  sentry-raven
   spring
   sqlite3
   turbolinks
