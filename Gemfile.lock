@@ -133,6 +133,7 @@ GEM
     rake (11.1.2)
     rdoc (4.2.2)
       json (~> 1.4)
+    redcarpet (2.3.0)
     redis (3.3.1)
     sass (3.4.22)
     sass-rails (5.0.4)
@@ -192,6 +193,7 @@ DEPENDENCIES
   jquery-rails
   mocha
   rails (= 4.2.6)
+  redcarpet (~> 2.3.0)
   redis (~> 3.2)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

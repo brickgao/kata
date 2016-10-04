@@ -10,6 +10,9 @@
   <%= f.label :body %>
   <%= f.text_area :body, class: ['long-width', 'post-text'] %>
 
+  <%= f.label :enable_markdown %>
+  <%= f.check_box :enable_markdown %>
+
   <%= f.label :node %>
   <%= f.select :node, [], {}, class: 'short-width' %>
 
