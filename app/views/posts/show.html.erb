@@ -12,8 +12,13 @@
   </div>
 </div>
 <div class="post post-body">
-  <% @post.body.split(/\r?\n/).each do |paragraph| %>
-    <%= render 'layouts/content', :content => paragraph %>
+  <% if @post.enable_markdown %>
+    <%= sanitize @markdown.render(@post.body), tags: ["h1", "h2", "h3", "p", "strong"] %>
+
+  <% else %>
+    <% @post.body.split(/\r?\n/).each do |paragraph| %>
+      <%= render 'layouts/content', :content => paragraph %>
+    <% end %>
   <% end %>
 </div>
 

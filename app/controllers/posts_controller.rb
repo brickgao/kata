@@ -28,6 +28,10 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    if @post.enable_markdown
+      renderer = Redcarpet::Render::HTML.new(render_options = {})
+      @markdown = Redcarpet::Markdown.new(renderer, extensions = {})
+    end
     @comment = Comment.new
     $redis.hincrby(:post_hit, params[:id], 1)
   end
@@ -35,7 +39,7 @@ class PostsController < ApplicationController
   private
   
     def post_params
-      _params = params.require(:post).permit(:title, :body, :node)
+      _params = params.require(:post).permit(:title, :body, :node, :enable_markdown)
       _params[:node] = Node.find(Integer(_params[:node]))
       _params[:user] = User.find(session[:user_id])
       _params

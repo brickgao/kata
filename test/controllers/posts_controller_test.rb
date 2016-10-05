@@ -20,7 +20,8 @@ class PostsControllerTest < ActionController::TestCase
       :post => {
         :title => "Sample Title",
         :body => "Sample Body",
-        :node => nodes(:testnode)
+        :node => nodes(:testnode),
+        :enable_markdown => 0
       }
     }
     post :create, post_params
@@ -32,7 +33,8 @@ class PostsControllerTest < ActionController::TestCase
       :post => {
         :title => "Sample",
         :body => "Sample",
-        :node => @node.id
+        :node => @node.id,
+        :enable_markdown => 0
       }
     }
     post :create, post_params

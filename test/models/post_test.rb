@@ -7,7 +7,7 @@ class PostTest < ActiveSupport::TestCase
   def setup
     @node, @user = nodes(:testnode), users(:alice)
     @post = Post.new(title: "Wow, such a post", body: "much text",
-                     node: @node, user: @user)
+                     node: @node, user: @user, enable_markdown: true)
   end
 
   test "should be valid" do
