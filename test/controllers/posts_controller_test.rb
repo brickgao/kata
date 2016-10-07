@@ -5,7 +5,7 @@ class PostsControllerTest < ActionController::TestCase
   #   assert true
   # end
   def setup
-    @post, @post2 = posts(:testpost), posts(:testpost2)
+    @post, @post2, @post_markdown = posts(:testpost), posts(:testpost2), posts(:testmarkdown)
     @node = nodes(:testnode)
     session[:user_id] = users(:alice).id
   end
@@ -20,12 +20,13 @@ class PostsControllerTest < ActionController::TestCase
       :post => {
         :title => "Sample Title",
         :body => "Sample Body",
-        :node => nodes(:testnode),
+        :node => @node.id,
         :enable_markdown => 0
       }
     }
     post :create, post_params
     assert_response :redirect
+    assert_not_equal @response.location, "http://test.host/posts/new"
   end
 
   test "should create unsuccessfully with invalid params" do
@@ -39,6 +40,7 @@ class PostsControllerTest < ActionController::TestCase
     }
     post :create, post_params
     assert_response :redirect
+    assert_equal @response.location, "http://test.host/posts/new"
   end
 
   test "should show single post" do
@@ -67,5 +69,26 @@ class PostsControllerTest < ActionController::TestCase
     assert_response :success
     assert_template 'posts/show'
     assert_select 'div.comment-total', false
+  end
+
+  test "shoud render markdown if enable markdown" do
+    get :show, id: @post_markdown.id
+    assert_response :success
+    assert_template 'posts/show'
+    assert_select 'p > strong'
+  end
+
+  test "should create successfully with markdown enable" do
+    post_params = {
+      :post => {
+        :title => "Sample Title",
+        :body => "Sample Body",
+        :node => @node.id,
+        :enable_markdown => 0
+      }
+    }
+    post :create, post_params
+    assert_response :redirect
+    assert_not_equal @response.location, "http://test.host/posts/new"
   end
 end

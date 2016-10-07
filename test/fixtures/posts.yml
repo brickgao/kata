@@ -4,9 +4,18 @@ testpost:
   body: testbody
   node: testnode
   user: alice
+  enable_markdown: false
 
 testpost2:
   title: testtitle2
   body: testbody2
   node: testnode
   user: alice
+  enable_markdown: false
+
+testmarkdown:
+  title: testenablemarkdown
+  body: test **test**
+  node: testnode
+  user: alice
+  enable_markdown: true
