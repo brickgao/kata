@@ -30,7 +30,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if @post.enable_markdown
       renderer = Redcarpet::Render::HTML.new(render_options = {})
-      @markdown = Redcarpet::Markdown.new(renderer, extensions = {})
+      @markdown = Redcarpet::Markdown.new(renderer, extensions = {:tables => true, :highlight => true})
     end
     @comment = Comment.new
     $redis.hincrby(:post_hit, params[:id], 1)
