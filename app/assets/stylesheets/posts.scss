@@ -53,6 +53,9 @@ textarea {
     .post-summary-title {
       margin: 5px 0;
     }
+    .hot-post-summary-title {
+      overflow-wrap: break-word;
+    }
     .post-summary-author {
       margin: 10px 0;
       font-size: 70%;
