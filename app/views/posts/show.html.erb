@@ -34,7 +34,7 @@
 
 
   <% @post.comments.each do |comment| %>
-    <div class="single-comment" id="comment-<%= comment.id %>">
+    <div class="single-comment post-comment" id="comment-<%= comment.id %>">
       <div class="avatar">
         <img src="<%= get_gavater_img(comment.user.email, 50) %>"/>
       </div>

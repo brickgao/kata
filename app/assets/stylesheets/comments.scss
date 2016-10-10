@@ -22,18 +22,17 @@ textarea {
     margin: .3em 10px;
   }
   .single-comment {
-    display: flex;
     align-items: center;
     .comment-right-part {
-      border-bottom: 1px solid #E5E5E5;
-      margin: .3em 0;
-      padding: .2em 0;
-      .comment-body {
-      }
-      .comment-detail {
-        margin: 10px 0;
-        font-size: 70%;
-      }
+    }
+    border-bottom: 1px solid #E5E5E5;
+    margin: .3em 0;
+    padding: .2em 0;
+    .comment-body {
+    }
+    .comment-detail {
+      margin: 10px 0;
+      font-size: 70%;
     }
     .avatar {
       margin: 0 10px;
@@ -41,6 +40,9 @@ textarea {
         border-radius: 4px;
       }
     }
+  }
+  .post-comment {
+    display: flex;
   }
 }
 
