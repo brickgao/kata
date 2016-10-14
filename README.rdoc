@@ -1,5 +1,0 @@
-== Kata
-
-{<img src="https://travis-ci.org/brickgao/kata.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/brickgao/kata] {<img src="https://coveralls.io/repos/github/brickgao/kata/badge.svg?branch=master" alt="Coverage Status" />}[https://coveralls.io/github/brickgao/kata?branch=master]
-
-A kata for learning Ruby on rails.
