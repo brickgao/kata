@@ -55,6 +55,8 @@ gem 'coveralls', require: false
 
 gem 'redis', '~>3.2'
 
-gem "sentry-raven"
+gem 'sentry-raven'
 
-gem "redcarpet", "~>2.3.0"
+gem 'redcarpet', '~>2.3.0'
+
+gem 'puma'

@@ -4,6 +4,15 @@
 
 A kata for learning Ruby on rails.
 
+## Install
+
+Set up your Redis and Elasticsearch, then:
+
+```
+$ bundle install
+$ rails s Puma
+```
+
 ## Features
 
 * Basic features related to users, e.g. signup, login, change your password or avatar.
@@ -12,3 +21,7 @@ A kata for learning Ruby on rails.
 * Use nodes to divide different type of posts.
 * Get most popular posts in this forum.
 * Search your post.
+
+## License
+
+MIT
