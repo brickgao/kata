@@ -22,6 +22,15 @@ $ rails s Puma
 * Get most popular posts in this forum.
 * Search your post.
 
+## Screenshots
+
+![](./screenshots/screenshot1.png)
+
+![](./screenshots/screenshot2.png)
+
+![](./screenshots/screenshot3.png)
+
+
 ## License
 
 MIT
