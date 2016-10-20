@@ -13,6 +13,8 @@ RUN gem install bundler && bundle install --jobs 20 --retry 5
 
 COPY . ./
 
+RUN touch .In_Container
+
 RUN rake db:migrate RAILS_ENV=development
 
 EXPOSE 3000
