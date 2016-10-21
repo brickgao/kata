@@ -17,6 +17,8 @@ RUN touch .In_Container
 
 RUN rake db:migrate RAILS_ENV=development
 
+RUN rails runner script/create_default_admin.rb
+
 EXPOSE 3000
 
 CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
