@@ -1,9 +1,9 @@
 <div class="posts">
   <div>
-    <% if @posts.results.total == 0 %>
+    <% if @matched_posts_count == 0 %>
       0 result match <em><%= @words_search %></em>
     <% else %>
-      <%= pluralize(@posts.results.total, "result") %> match <em><%= @words_search %></em>
+      <%= pluralize(@matched_posts_count, "result") %> match <em><%= @words_search %></em>
     <% end %>
   </div>
   <% for i in 0...@search_records.length do %>
