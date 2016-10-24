@@ -6,11 +6,18 @@ A kata for learning Ruby on rails.
 
 ## Install
 
-Set up your Redis and Elasticsearch, then:
+Set up your MySQL, Redis and Elasticsearch, then:
 
-```
+```bash
 $ bundle install
 $ rails s Puma
+```
+
+If you would like to use Docker, install `docker` and `docker-compose`, then:
+
+```bash
+$ docker-compose build
+$ docker-compose up
 ```
 
 ## Features
