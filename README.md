@@ -9,6 +9,7 @@ A kata for learning Ruby on rails.
 Set up your MySQL, Redis and Elasticsearch, then:
 
 ```bash
+$ rake db:migrate
 $ bundle install
 $ rails s Puma
 ```
