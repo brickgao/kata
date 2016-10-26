@@ -9,9 +9,9 @@ A kata for learning Ruby on rails.
 Set up your MySQL, Redis and Elasticsearch, then:
 
 ```bash
-$ rake db:migrate
+$ RAILS_ENV="production" rake db:migrate
 $ bundle install
-$ rails s Puma
+$ RAILS_ENV="production" SECRET_KEY_BASE="YOUR_SERCET_KEY_BASE" SENTRY_DSN="YOUR_SENTRY_DSN" rails s Puma
 ```
 
 If you would like to use Docker, install `docker` and `docker-compose`, then:
