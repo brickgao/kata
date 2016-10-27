@@ -17,6 +17,8 @@ $ RAILS_ENV="production" SECRET_KEY_BASE="YOUR_SERCET_KEY_BASE" SENTRY_DSN="YOUR
 If you would like to use Docker, install `docker` and `docker-compose`, then:
 
 ```bash
+$ export SECRET_KEY_BASE="YOUR_SERCET_KEY_BASE"
+$ export SENTRY_DSN="YOUR_SENTRY_DSN"
 $ docker-compose build
 $ docker-compose up
 ```

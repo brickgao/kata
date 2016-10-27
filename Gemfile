@@ -60,3 +60,5 @@ gem 'sentry-raven'
 gem 'redcarpet', '~>2.3.0'
 
 gem 'puma'
+
+gem "mysql2"

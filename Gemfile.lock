@@ -101,6 +101,7 @@ GEM
       metaclass (~> 0.0.1)
     multi_json (1.12.1)
     multipart-post (2.0.0)
+    mysql2 (0.4.5)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     puma (3.6.0)
@@ -193,6 +194,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mocha
+  mysql2
   puma
   rails (= 4.2.6)
   redcarpet (~> 2.3.0)
