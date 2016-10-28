@@ -6,11 +6,11 @@ A kata for learning Ruby on rails.
 
 ## Install
 
-Set up your MySQL, Redis and Elasticsearch, then:
+Set up your MySQL / MariaDB, Redis and Elasticsearch, then:
 
 ```bash
 $ RAILS_ENV="production" rake db:migrate
-$ bundle install
+$ RAILS_ENV="production" bundle install
 $ RAILS_ENV="production" SECRET_KEY_BASE="YOUR_SERCET_KEY_BASE" SENTRY_DSN="YOUR_SENTRY_DSN" rails s Puma
 ```
 
@@ -21,6 +21,8 @@ $ export SECRET_KEY_BASE="YOUR_SERCET_KEY_BASE"
 $ export SENTRY_DSN="YOUR_SENTRY_DSN"
 $ docker-compose build
 $ docker-compose up
+$ docker exec kata_app_1 rake db:schema:load
+$ docker exec kata_app_1 rails runner script/create_default_admin.rb
 ```
 
 ## Features
