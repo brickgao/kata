@@ -33,3 +33,5 @@ mariadb:
         - MYSQL_DATABASE=kata
     ports:
         - "3306"
+    volumes:
+        - /opt/datadir/:/var/lib/mysql
