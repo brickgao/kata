@@ -17,15 +17,22 @@ app:
         - ELASTICSERACH_PORT=9200
         - MARIADB_HOST=mariadb.local
         - MARIADB_PORT=3306
+
 redis:
     image: redis:3.2.4
     ports:
         - "6379"
+    volumes:
+        - /opt/datadir/redis:/data
+
 elasticsearch:
     image: elasticsearch:5.0.0
     ports:
         - "9200"
         - "9300"
+    volumes:
+        - /opt/datadir/elasticsearch:/usr/share/elasticsearch/data
+
 mariadb:
     image: mariadb:10.1.18
     environment:
@@ -34,4 +41,4 @@ mariadb:
     ports:
         - "3306"
     volumes:
-        - /opt/datadir/:/var/lib/mysql
+        - /opt/datadir/mysql:/var/lib/mysql
