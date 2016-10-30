@@ -12,6 +12,8 @@ Set up your MySQL / MariaDB, Redis and Elasticsearch, then:
 $ RAILS_ENV="production" rake db:migrate
 $ RAILS_ENV="production" bundle install
 $ RAILS_ENV="production" SECRET_KEY_BASE="YOUR_SERCET_KEY_BASE" SENTRY_DSN="YOUR_SENTRY_DSN" rails s Puma
+$ RAILS_ENV="production" SECRET_KEY_BASE="YOUR_SERCET_KEY_BASE" SENTRY_DSN="YOUR_SENTRY_DSN" rails runner script/create_default_admin.rb
+$ RAILS_ENV="production" SECRET_KEY_BASE="YOUR_SERCET_KEY_BASE" SENTRY_DSN="YOUR_SENTRY_DSN" rails runner script/update_hot_posts.rb # Add this one to crontab
 ```
 
 If you would like to use Docker, install `docker` and `docker-compose`, then:
@@ -23,6 +25,7 @@ $ docker-compose build
 $ docker-compose up
 $ docker exec kata_app_1 rake db:schema:load
 $ docker exec kata_app_1 rails runner script/create_default_admin.rb
+$ sudo cat crontab >> /etc/crontab
 ```
 
 ## Features

@@ -1,1 +1,1 @@
-0 */1 * * * docker exec kata_app_2 rails runner /app/script/update_hot_posts.rb
+0 */1 * * * docker exec kata_cron_1 rails runner /app/script/update_hot_posts.rb
