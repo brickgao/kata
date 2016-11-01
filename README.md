@@ -6,7 +6,7 @@ A kata for learning Ruby on rails.
 
 ## Install
 
-Set up your MySQL / MariaDB, Redis and Elasticsearch, then:
+Set up your `crontab`, `MySQL` / `MariaDB`, `Redis` and `Elasticsearch`, then:
 
 ```bash
 $ RAILS_ENV="production" rake db:migrate
@@ -16,7 +16,7 @@ $ RAILS_ENV="production" SECRET_KEY_BASE="YOUR_SERCET_KEY_BASE" SENTRY_DSN="YOUR
 $ sudo echo "0 */1 * * * RAILS_ENV=\"production\" SECRET_KEY_BASE=\"YOUR_SERCET_KEY_BASE\" SENTRY_DSN=\"YOUR_SENTRY_DSN\" rails runner script/update_hot_posts.rb" >> /etc/crontab
 ```
 
-If you would like to use Docker, install `docker` and `docker-compose`, then:
+If you would like to use Docker, install `crontab`, `docker` and `docker-compose`, then:
 
 ```bash
 $ export SECRET_KEY_BASE="YOUR_SERCET_KEY_BASE"
