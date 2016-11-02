@@ -10,6 +10,10 @@ class PostsController < ApplicationController
     @pages_total = (Post.where(conditions).count / posts_limit.to_f).ceil
     @posts = Post.order(id: :desc).where(conditions).limit(posts_limit).offset((@query_page - 1) * posts_limit)
     @nodes = Node.all
+    @extra_messages = [
+        "Placeholder here",
+        "<a href=\"/\">Another Placeholder</a>"
+    ]
   end
 
   def new

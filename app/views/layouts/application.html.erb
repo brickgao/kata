@@ -78,6 +78,13 @@
           </div>
         <% end %>
       </div>
+      <% if @extra_messages %>
+      <div class="block">
+        <% for extra_message in @extra_messages %>
+          <p><%= sanitize extra_message, tags: ["a"] %></p>
+        <% end %>
+      </div>
+      <% end %>
       <div class="block">
         <div class="posts">
           <h3>Hot Posts</h3>
