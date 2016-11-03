@@ -10,10 +10,7 @@ class PostsController < ApplicationController
     @pages_total = (Post.where(conditions).count / posts_limit.to_f).ceil
     @posts = Post.order(id: :desc).where(conditions).limit(posts_limit).offset((@query_page - 1) * posts_limit)
     @nodes = Node.all
-    @extra_messages = [
-        "Placeholder here",
-        "<a href=\"/\">Another Placeholder</a>"
-    ]
+    @extra_messages = @query_node.extra_messages.split("\n") if @query_node and @query_node.extra_messages
   end
 
   def new
@@ -37,6 +34,7 @@ class PostsController < ApplicationController
       @markdown = Redcarpet::Markdown.new(renderer, extensions = {:tables => true, :highlight => true})
     end
     @comment = Comment.new
+    @extra_messages = @post.node.extra_messages.split("\n") if @post.node.extra_messages
     $redis.hincrby(:post_hit, params[:id], 1)
   end
 

@@ -35,6 +35,7 @@ class NodesController < ApplicationController
 
   private
     def post_params
-      _params = params.require(:node).permit(:name, :summary, :icon_url)
+      _params = params.require(:node).permit(:name, :summary, :icon_url,
+                                             :extra_messages)
     end
 end
