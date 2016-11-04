@@ -4,3 +4,4 @@ testnode:
   name: Test Node
   summary: Here is test node
   icon_url: http://sampleurl.jpg
+  extra_messages: extra message

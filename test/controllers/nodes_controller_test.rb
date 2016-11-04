@@ -78,13 +78,24 @@ class NodesControllerTest < ActionController::TestCase
     assert_select 'div.error-message'
   end
 
+  test "extra messages should not be too long" do
+    _post_params = post_params
+    _post_params[:node][:extra_messages] = 'a' * 101
+    post :create, _post_params
+    assert_response :success
+    assert_select 'div.error-message'
+  end
+
   private
     def post_params
       {
         :node => {
             :name => 'samplename',
             :summary => 'samplesummary',
-            :icon_url => 'http://sampleurl.jpg'
+            :icon_url => 'http://sampleurl.jpg',
+            :extra_messages => (
+                "extra message 1\n<a href=\"/\">extra message 2</a>"
+            )
         }
       }
     end

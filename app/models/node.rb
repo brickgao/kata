@@ -5,4 +5,5 @@ class Node < ActiveRecord::Base
   VALID_ICON_URL_REGEX = /https?:\/\/[\S]+.(.jpg|.png|.gif)/
   validates :icon_url, presence: true, length: { maximum: 300 },
                        format: { with: VALID_ICON_URL_REGEX }
+  validates :extra_messages, length: { maximum: 100 }
 end
